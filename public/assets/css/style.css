@@ -1,0 +1,257 @@
+body {
+	background-color:#fff;
+	letter-spacing: 0.2px;
+	color: #4a4a4a;
+}
+
+
+.ui.menu {
+	border-left:none;
+	border-top:none;
+	border-right:none;
+	border-radius:0px;
+	border: none;
+	/*border-bottom:2px solid #f7f8f9;*/
+	/*background-color: #f8f9fa;*/
+	background-color: #fff;
+	margin-bottom: 2.2em;
+}
+.ui.menu .item.logo {
+	margin-right:1%;
+	background-color:#3DB6FD;
+	color:#fff;
+}
+.ui.menu .item.logo:hover {
+	background-color:#3DB6FD;
+	color:#fff;
+}
+.ui.menu a.item,.ui.menu a.item.active {
+	color:#555;
+}
+.ui.menu .item:before {
+	background:none;
+}
+.ui.menu a.item.active,.ui.menu .active.item {
+	background:transparent;
+}
+.ui.menu a.item:hover,.ui.menu a.item.active:hover {
+	background:transparent;
+}
+.ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless)>.container>.item:not(.right):not(.borderless):first-child {
+	border:transparent;
+}
+.ui.blue {
+	background-color: #3DB6FD !important;
+}
+.ui.comments .comment .text {
+	color:#666;
+	margin: 7px 0;
+	letter-spacing: 0.3px;
+}
+.ui.right.menu {
+	box-shadow:none;
+}
+.ui.right.menu {
+	border:transparent;
+}
+.ui.menu .dropdown.item:hover {
+	background:transparent;
+}
+.ui.vertical.menu {
+	width:100%;
+}
+.ui.vertical.menu .item {
+	color:rgba(0,0,0,.7)!important;
+}
+.ui.list .item {
+	padding-bottom:15px;
+}
+[data-tooltip]:after {
+	padding:6px 11px!important;
+	font-size:11px;
+	font-weight:bold;
+	opacity: 0.5;
+}
+/*table*/
+.ui.table{
+	border:1px solid #f0f1f1;
+}
+.ui.table thead th {
+	background-color:#fff;
+}
+.ui.table thead {
+	border-left:none;
+	border-top:none;
+	border-right:none;
+	border-radius:0px;
+	-webkit-box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);
+	-moz-box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);
+	box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);
+}
+.ui.segment,.ui.vertical.menu,.ui.card,.ui.basic.table {
+	box-shadow:none;
+	border:1px solid #f0f1f1;
+	border-radius:3px;
+	/*border: none;
+	*/
+}
+.ui.segment:hover {
+	/*box-shadow:0 1px 2px 0 rgba(34,36,38,.15);
+	*/
+	/*border:1px solid rgba(34,36,38,.15);
+	*/
+}
+.ui.list.segment {
+	padding:20px;
+}
+.item.logo {
+	color:#444;
+	font-weight:bold;
+	font-size:15px;
+}
+/*i {
+	padding-right: 5px;
+}*/
+/*notifikasi*/
+.ui.floating.label {
+	top:0.5em;
+	left:85%;
+}
+.ui.right.menu .floating.ui.label {
+	font-size: 10px;
+}
+/*obrolan*/
+.ui.image.header>.content small {
+	color:#777 !important;
+}
+.ui.header:first-child {
+	margin-bottom:0px;
+}
+.ui.image.header #user {
+	width:100%;
+}
+.ui .body {
+/*font-size:1px;*/
+}
+.ui.grid.right.aligned.saya {
+	background-color: rgba(243,243,243,0.28);
+}
+.ui.button.tiny {
+	padding: 8px;
+	padding-left: 15px;
+}
+
+
+.ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg{
+	width: 200px !important;
+}
+
+.profil {
+
+}
+.profil img {
+	margin-bottom: 15px;
+}
+.profil h4 {
+	font-weight: 400;
+	text-transform: uppercase;
+	margin: 10px 0;
+	color: #444;
+	padding-bottom: 5px;
+}
+.profil p {
+	font-size: 13px;
+	width: 70%;
+	line-height: 7px;
+}
+.profil span,.about span {
+	color: #999;
+	font-weight: normal;
+}
+
+
+.about {
+	padding-bottom: 35px;
+	border-bottom: 1px solid #f1f1f1;
+}
+#about h4 {
+	/*text-transform: uppercase;*/
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	color: #4a4a4a;
+}
+.about p {
+	color: #4a4a4a;
+}
+#main i.icon {
+	color: #74b9ff;
+	padding-right: 5px;
+}
+
+.ui.menu .dropdown.item .menu {
+	border:none;
+}
+.ui.padded.segment {
+	padding: 1em;
+}
+.ui.primary.basic.button {
+	color: #74b9ff;
+	opacity: 0.7;
+}
+
+.form-search {
+	margin-right: 1.2em; 
+}
+
+
+.ui.long.modal .content a.author {
+	font-size: 21px;
+	color: #444;
+}
+.ui.long.modal .content .text {
+	font-size: 19px;
+}
+.ui.long.modal .content .actions a {
+	font-size: 13px;
+}
+
+.ui.long.modal .komentar .content a.author {
+	font-size: 19px;
+}
+.ui.long.modal .komentar .content .text {
+	font-size: 17px;
+}
+
+.ui.modal>.actions {
+	text-align: left;
+	padding-left: 9em;
+	padding-top: 2em;
+	padding-bottom:2.5em;
+}
+
+/*comments*/
+.ui.comments .comment .author,
+.ui.comments .comment .text {
+	font-size: 1.2em;
+}
+.ui.comments .comment .text {
+	padding-bottom: 5px;
+}
+
+#Komentar .comment .author,
+#Komentar .comment .text {
+	font-size: 1em;
+}
+
+.ui.comments .comment .avatar {
+    width: 5em;
+    margin-right: 15px;
+}
+
+#Komentar .comment .avatar {
+    width: 2.5em !important;
+    margin: .2em 0 0 !important;
+}
+.ui.threaded.comments .comment .comments{
+	    margin: -1.5em 0 -1em 3.50em;
+}
