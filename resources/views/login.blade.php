@@ -15,26 +15,34 @@
 						<div class="content">.:: Login Member ::.</div>
 					</h2>
 					<div class="field">
+						@include('layout.alerts')
+					</div>
+					<div class="field {{ $errors->has('username') ? 'error' : '' }}">
 						<div class="ui left icon input">
 							<i class="user icon"></i>
-							<input type="text" name="username" placeholder="Username"></div>
-							@if($errors->has('username'))
+							<input type="text" name="username" placeholder="Username" value="{{ old('username') }}">
+						</div>
+							{{-- @if($errors->has('username'))
 								<small>{{ $errors->first('username') }} </small>
-							@endif
+							@endif --}}
 					</div>
-					<div class="field">
+					<div class="field {{ $errors->has('password') ? 'error' : '' }}">
 						<div class="ui left icon input">
 							<i class="lock icon"></i>
 							<input type="password" name="password" placeholder="Password"></div>
-							@if($errors->has('username'))
+							{{-- @if($errors->has('username'))
 								<small>{{ $errors->first('password') }} </small>
-							@endif
+							@endif --}}
 					</div>
-					<!-- <div class="field">
-						<label>
+					<div class="field">
+						{{-- <label>
 							<input type="checkbox" name="remember"> Remember me
-						</label>
-					</div> -->
+						</label> --}}
+						{{-- <div class="ui toggle checkbox">
+							<input type="checkbox" name="remember">
+							<label>Ingat saya</label>
+						</div> --}}
+					</div>
 					<div class="field"> 
 						<button class="ui fluid large blue submit button">Login</button>
 					</div>

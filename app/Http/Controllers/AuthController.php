@@ -25,10 +25,10 @@ class AuthController extends Controller
 
     	if (!Auth::attempt($request->only(['username', 'password']), $request->has('remember'))) 
     	{
-    		return redirect()->back()->with('info', 'tidak terdaftar');
+    		return redirect()->back()->with('info', 'Username atau Password salah!');
     	}
 
-    	return redirect()->route('beranda')->with('info', "Anda Telah Login");
+    	return redirect()->route('beranda');
     }
 
 
@@ -69,7 +69,7 @@ class AuthController extends Controller
 
 		]);
 
-		return redirect()->route('login')->with('info', 'Anda Telah Terdaftar, Silahkan Login');
+		return redirect()->route('login')->with('sukses', 'Anda Telah Terdaftar, Silahkan Login');
 	}
 
 	public function getLogout()

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -32,6 +33,13 @@ class Status extends Model
 	public function likes()
 	{
 		return $this->morphMany('App\Models\Like', 'likeable');
+	}
+	public function waktu()
+	{
+		// waktu
+        // date_default_timezone_set('Asia/Jakarta');
+        Carbon::setLocale('id');
+        return Carbon::parse($this->created_at);
 	}
 
 }

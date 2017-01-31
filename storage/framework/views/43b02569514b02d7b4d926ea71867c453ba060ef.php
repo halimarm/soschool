@@ -23,8 +23,8 @@
 						<div class="sixteen wide mobile eight wide tablet eight wide computer column">
 							<p><i class="at icon"></i>Nama Lengkap : <span><?php echo e($user->getNamaLengkap()); ?></span></p>
 							<p><i class="user icon"></i>Jenis Kelamin : <span><?php echo e($user->jenis_kelamin); ?></span></p>
-							<p><i class="user icon"></i>Kelas Jurusan : <span><?php echo e($user->kelas_jurusan); ?></span></p>
-							<p><i class="user icon"></i>Status : <span><?php echo e($user->status); ?></span></p>
+							<p><i class="hashtag icon"></i>Kelas Jurusan : <span><?php echo e($user->kelas_jurusan); ?></span></p>
+							<p><i class="tag icon"></i>Status : <span><?php echo e($user->status); ?></span></p>
 
 						</div>
 						<div class="sixteen wide mobile eight wide tablet eight wide computer column">

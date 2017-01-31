@@ -15,7 +15,8 @@
 
 											" class="author"><?php echo e($status->user->getNamaOrUsername()); ?></a>
 											<div class="metadata">
-												<span class="date"><?php echo e($status->created_at->diffForHumans()); ?></span>
+												
+												<span class="date"><?php echo e($status->waktu()->diffForHumans()); ?></span>
 											</div>
 											<div class="text">
 												<?php echo e($status->body); ?>

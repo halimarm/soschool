@@ -13,26 +13,25 @@
 						<div class="content">.:: Login Member ::.</div>
 					</h2>
 					<div class="field">
+						<?php echo $__env->make('layout.alerts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+					</div>
+					<div class="field <?php echo e($errors->has('username') ? 'error' : ''); ?>">
 						<div class="ui left icon input">
 							<i class="user icon"></i>
-							<input type="text" name="username" placeholder="Username"></div>
-							<?php if($errors->has('username')): ?>
-								<small><?php echo e($errors->first('username')); ?> </small>
-							<?php endif; ?>
+							<input type="text" name="username" placeholder="Username" value="<?php echo e(old('username')); ?>">
+						</div>
+							
 					</div>
-					<div class="field">
+					<div class="field <?php echo e($errors->has('password') ? 'error' : ''); ?>">
 						<div class="ui left icon input">
 							<i class="lock icon"></i>
 							<input type="password" name="password" placeholder="Password"></div>
-							<?php if($errors->has('username')): ?>
-								<small><?php echo e($errors->first('password')); ?> </small>
-							<?php endif; ?>
+							
 					</div>
-					<!-- <div class="field">
-						<label>
-							<input type="checkbox" name="remember"> Remember me
-						</label>
-					</div> -->
+					<div class="field">
+						
+						
+					</div>
 					<div class="field"> 
 						<button class="ui fluid large blue submit button">Login</button>
 					</div>

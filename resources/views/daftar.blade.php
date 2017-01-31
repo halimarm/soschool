@@ -11,35 +11,35 @@
 				<div class="ui grid">
 					<div class="sixteen wide mobile eight wide tablet eight wide computer column">
 						<h4 class="ui dividing header">Informasi Login</h4>
-						<div class="required field">
+						<div class="required field {{ $errors->has('username') ? 'error' : '' }}">
 							<label>Username</label>
 							<input type="text" placeholder="Username" name="username" value="{{ old('username') }}">
 							@if($errors->has('username'))
 								<small>{{ $errors->first('username') }} </small>
 							@endif
 						</div>
-						<div class="required field">
+						<div class="required field {{ $errors->has('password') ? 'error' : '' }}">
 							<label>Password</label>
 							<input type="password" placeholder="Password" name="password">
 							@if($errors->has('password'))
 								<small>{{ $errors->first('password') }} </small>
 							@endif
 						</div>
-						<div class="required field">
+						<div class="required field {{ $errors->has('password') ? 'error' : '' }}">
 							<label>Konfirmasi Password</label>
 							<input type="password" placeholder="password" name="password2">
 							@if($errors->has('password'))
 								<small>{{ $errors->first('password') }} </small>
 							@endif
 						</div>
-						<div class="required field">
+						<div class="required field {{ $errors->has('email') ? 'error' : '' }}">
 							<label>Email</label>
 							<input type="email" placeholder="Email" name="email" value="{{ old('email') }}">
 							@if($errors->has('email'))
 								<small>{{ $errors->first('email') }} </small>
 							@endif
 						</div>
-						<div class="required field">
+						<div class="required field {{ $errors->has('username') ? 'error' : '' }}">
 							<label>Status</label>
 							<div class="ui selection dropdown">
 								<input type="hidden" name="status">
@@ -56,22 +56,22 @@
 						</div>
 					</div>
 					<div class="sixteen wide mobile eight wide tablet eight wide computer column">
-								<h4 class="ui dividing header">Informasi Pribadi</h4>
-						<div class="required field">
+						<h4 class="ui dividing header">Informasi Pribadi</h4>
+						<div class="required field {{ $errors->has('nama_depan') ? 'error' : '' }}">
 							<label>Nama Depan</label>
 							<input type="text" name="nama_depan" placeholder="Nama Depan" value="{{ old('nama_depan') }}">
 							@if($errors->has('nama_depan'))
 								<small>{{ $errors->first('nama_depan') }} </small>
 							@endif
 						</div>
-						<div class="required field">
+						<div class="required field {{ $errors->has('nama_belakang') ? 'error' : '' }}">
 							<label>Nama Belakang</label>
 							<input type="text" name="nama_belakang" placeholder="Nama Belakang" value="{{ old('nama_belakang') }}">
 							@if($errors->has('nama_belakang'))
 								<small>{{ $errors->first('nama_belakang') }} </small>
 							@endif
 						</div>
-						<div class="required field">
+						<div class="required field {{ $errors->has('jenis_kelamin') ? 'error' : '' }}">
 							<label>Jenis Kelamin</label>
 							<div class="ui selection dropdown">
 								<input type="hidden" name="jenis_kelamin">
@@ -87,16 +87,16 @@
 							@endif
 						</div>
 						
-						<div class="required field">
+						<div class="required field {{ $errors->has('alamat') ? 'error' : '' }}">
 							<label>Alamat</label>
-							<textarea placeholder="Alamat" name="alamat"></textarea>
+							<textarea placeholder="Alamat" name="alamat">{{ old('alamat') }}</textarea>
 							@if($errors->has('alamat'))
 								<small>{{ $errors->first('alamat') }} </small>
 							@endif
 						</div>
 						<!-- mentok -->
 						<div class="required inline field">
-							<div class="ui checkbox">
+							<div class="ui toggle checkbox">
 								<input type="checkbox" tabindex="0" required>
 								<label>Konfirmasi & lanjutkan</label>
 							</div>

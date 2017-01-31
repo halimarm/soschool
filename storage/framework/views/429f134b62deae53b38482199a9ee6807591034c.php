@@ -60,13 +60,16 @@
 </head>
 <body>
 
-<?php echo $__env->make('layout.alerts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 <?php echo $__env->yieldContent('content'); ?>
 
-<!-- <script type="text/javascript" src="/assets/js/jquery.min.js"></script> -->
-<!-- <script type="text/javascript" src="/assets/js/semantic.min.js"></script> -->
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/semantic.min.js"></script>
 <script type="text/javascript">
-
+	$('.message .close').on('click', function(){
+		$(this).closest('.message').transition('fade');
+	});
+	$('.page').dimmer('toggle');
 </script>
 </body>
 </html>

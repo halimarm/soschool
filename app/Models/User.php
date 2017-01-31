@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Status;
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -65,32 +66,12 @@ class User extends Authenticatable
         return $this->username;
     }
 
-    // public function getNamaDepan()
-    // {
-    //     return $this->nama_depan;
-    // }
-    // public function getNamaBelakang()
-    // {
-    //     return $this->nama_belakang;
-    // }
     public function getNamaLengkap()
     {
         if ($this->nama_depan && $this->nama_belakang) {
             return "{$this->nama_depan} {$this->nama_belakang}";
         }
     }
-    // public function getEmail()
-    // {
-    //     return $this->email;
-    // }
-    // public function getAlamat()
-    // {
-    //     return $this->alamat;
-    // }
-    // public function getJenisKelamin()
-    // {
-    //     return $this->jenis_kelamin;
-    // }
 
     /**
      * Status

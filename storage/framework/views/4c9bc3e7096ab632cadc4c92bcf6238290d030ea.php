@@ -70,7 +70,7 @@
 <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/semantic.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+
 	$('.ui .dropdown').dropdown();
 
 	// $('#modal').click(function(){
@@ -82,10 +82,16 @@ $(document).ready(function(){
 		$('#Komentar').toggle();
 	});
 
-});
-
+	$('.ui.medium.rounded.image.upload').dimmer({
+		on: 'hover'
+	});
+	// end
+	$('.message .close').on('click', function(){
+		$(this).closest('.message').transition('fade');
+	});
+	$('.page').dimmer('toggle');
+	
 </script>
-
 </body>
 </html>
 

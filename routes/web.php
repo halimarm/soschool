@@ -146,3 +146,5 @@ Route::get('/status/{statusId}/suka', [
 	'as' => 'status.suka',
 	'middleware' => ['auth'],
 ]);
+
+Route::get('/carbon', 'StatusController@carbon');

@@ -6,6 +6,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class StatusController extends Controller
 {
@@ -63,6 +64,17 @@ class StatusController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function carbon()
+    {
+        // printf("Sekarang: %s", Carbon::now());
+       date_default_timezone_set('Asia/Jakarta');
+       Carbon::setLocale('id');
+
+       $status = Carbon::now();
+
+       printf("%s", $status->diffForHumans());
     }
 
 }

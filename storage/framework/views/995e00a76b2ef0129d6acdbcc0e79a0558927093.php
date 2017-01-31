@@ -9,35 +9,35 @@
 				<div class="ui grid">
 					<div class="sixteen wide mobile eight wide tablet eight wide computer column">
 						<h4 class="ui dividing header">Informasi Login</h4>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('username') ? 'error' : ''); ?>">
 							<label>Username</label>
 							<input type="text" placeholder="Username" name="username" value="<?php echo e(old('username')); ?>">
 							<?php if($errors->has('username')): ?>
 								<small><?php echo e($errors->first('username')); ?> </small>
 							<?php endif; ?>
 						</div>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('password') ? 'error' : ''); ?>">
 							<label>Password</label>
 							<input type="password" placeholder="Password" name="password">
 							<?php if($errors->has('password')): ?>
 								<small><?php echo e($errors->first('password')); ?> </small>
 							<?php endif; ?>
 						</div>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('password') ? 'error' : ''); ?>">
 							<label>Konfirmasi Password</label>
 							<input type="password" placeholder="password" name="password2">
 							<?php if($errors->has('password')): ?>
 								<small><?php echo e($errors->first('password')); ?> </small>
 							<?php endif; ?>
 						</div>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('email') ? 'error' : ''); ?>">
 							<label>Email</label>
 							<input type="email" placeholder="Email" name="email" value="<?php echo e(old('email')); ?>">
 							<?php if($errors->has('email')): ?>
 								<small><?php echo e($errors->first('email')); ?> </small>
 							<?php endif; ?>
 						</div>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('username') ? 'error' : ''); ?>">
 							<label>Status</label>
 							<div class="ui selection dropdown">
 								<input type="hidden" name="status">
@@ -54,22 +54,22 @@
 						</div>
 					</div>
 					<div class="sixteen wide mobile eight wide tablet eight wide computer column">
-								<h4 class="ui dividing header">Informasi Pribadi</h4>
-						<div class="required field">
+						<h4 class="ui dividing header">Informasi Pribadi</h4>
+						<div class="required field <?php echo e($errors->has('nama_depan') ? 'error' : ''); ?>">
 							<label>Nama Depan</label>
 							<input type="text" name="nama_depan" placeholder="Nama Depan" value="<?php echo e(old('nama_depan')); ?>">
 							<?php if($errors->has('nama_depan')): ?>
 								<small><?php echo e($errors->first('nama_depan')); ?> </small>
 							<?php endif; ?>
 						</div>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('nama_belakang') ? 'error' : ''); ?>">
 							<label>Nama Belakang</label>
 							<input type="text" name="nama_belakang" placeholder="Nama Belakang" value="<?php echo e(old('nama_belakang')); ?>">
 							<?php if($errors->has('nama_belakang')): ?>
 								<small><?php echo e($errors->first('nama_belakang')); ?> </small>
 							<?php endif; ?>
 						</div>
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('jenis_kelamin') ? 'error' : ''); ?>">
 							<label>Jenis Kelamin</label>
 							<div class="ui selection dropdown">
 								<input type="hidden" name="jenis_kelamin">
@@ -85,16 +85,16 @@
 							<?php endif; ?>
 						</div>
 						
-						<div class="required field">
+						<div class="required field <?php echo e($errors->has('alamat') ? 'error' : ''); ?>">
 							<label>Alamat</label>
-							<textarea placeholder="Alamat" name="alamat"></textarea>
+							<textarea placeholder="Alamat" name="alamat"><?php echo e(old('alamat')); ?></textarea>
 							<?php if($errors->has('alamat')): ?>
 								<small><?php echo e($errors->first('alamat')); ?> </small>
 							<?php endif; ?>
 						</div>
 						<!-- mentok -->
 						<div class="required inline field">
-							<div class="ui checkbox">
+							<div class="ui toggle checkbox">
 								<input type="checkbox" tabindex="0" required>
 								<label>Konfirmasi & lanjutkan</label>
 							</div>

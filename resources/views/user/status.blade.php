@@ -14,7 +14,8 @@
 											{{ route('profil.index', ['username' => $status->user->username]) }}
 											" class="author">{{ $status->user->getNamaOrUsername() }}</a>
 											<div class="metadata">
-												<span class="date">{{ $status->created_at->diffForHumans() }}</span>
+												{{-- <span class="date">{{ $status->created_at->diffForHumans() }}</span> --}}
+												<span class="date">{{ $status->waktu()->diffForHumans() }}</span>
 											</div>
 											<div class="text">
 												{{ $status->body }}

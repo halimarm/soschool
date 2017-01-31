@@ -39,10 +39,10 @@ class ProfilController extends Controller
 			'nama_belakang' => 'max:50',
 			'alamat' => 'max:50',
 			'email' => 'max:50',
-			'jenis_kelamin' => 'max:50',
+			// 'jenis_kelamin' => 'max:50',
 			'no_hp' => 'max:12',
 			'kelas_jurusan' => 'max:50',
-			'status' => 'max:50',
+			// 'status' => 'max:50',
 			'tanggal_lahir' => 'max:50',
 			// 'avatar' => 'max:50',
 
@@ -54,15 +54,15 @@ class ProfilController extends Controller
 			'nama_belakang' => $request->input('nama_belakang'),
 			'alamat' => $request->input('alamat'),
 			'email' => $request->input('email'),
-			'jenis_kelamin' => $request->input('jenis_kelamin'),
+			// 'jenis_kelamin' => $request->input('jenis_kelamin'),
 			'no_hp' => $request->input('no_hp'),
 			'kelas_jurusan' => $request->input('kelas_jurusan'),
-			'status' => $request->input('status'),
+			// 'status' => $request->input('status'),
 			'tanggal_lahir' => $request->input('tanggal_lahir'),
 			// 'avatar' => $request->input('avatar'),
 		]);
 
-		return redirect()->route('profil.edit')->with('info', 'Profil telah di update');
+		return redirect()->route('profil.edit')->with('info-update', 'Profil telah di update');
 	}
 
 	// gambar profil (avatar)
