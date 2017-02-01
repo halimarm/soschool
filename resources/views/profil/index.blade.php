@@ -12,7 +12,7 @@
 					<h4><a href="{{ route('profil.index', ['username' => $user->username]) }}">
 						{{ $user->getNamaOrUsername() }}
 					</a></h4>
-					<p><span>{{ $user->status }} / {{ $user->kelas_jurusan }}</span></p>
+					<p><span>{{ $user->username }}</span></p>
 					<!-- <p><span>Jl. Alkmar, Martopuro Purwosari - Pasuruan</span></p> -->
 					<!-- <button class="ui primary basic button">Edit Profil</button> -->
 				</div>

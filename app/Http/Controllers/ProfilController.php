@@ -34,7 +34,7 @@ class ProfilController extends Controller
 	public function postProfilEdit(Request $request)
 	{
 		$this->validate($request, [
-			// 'username' => 'max:50',
+			'username' => 'max:50',
 			'nama_depan' => 'max:50',
 			'nama_belakang' => 'max:50',
 			'alamat' => 'max:50',
@@ -49,7 +49,7 @@ class ProfilController extends Controller
 		]);
 
 		Auth::user()->update([
-			// 'username' => $request->input('username'),
+			'username' => $request->input('username'),
 			'nama_depan' => $request->input('nama_depan'),
 			'nama_belakang' => $request->input('nama_belakang'),
 			'alamat' => $request->input('alamat'),

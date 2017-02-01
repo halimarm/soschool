@@ -113,6 +113,11 @@ Route::post('/profil/edit', [
 	'uses' => 'ProfilController@postProfilEdit',
 	'middleware' => ['auth'],
 ]);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/profil/edit/password', 'PasswordController@ganti')->name('password.ganti');
+    Route::put('/profil/edit/password', 'PasswordController@update')->name('password.update');
+});
 // gambar profil
 // Route::get('/profil/avatar', [
 // 	'uses' => 'ProfilController@avatar',

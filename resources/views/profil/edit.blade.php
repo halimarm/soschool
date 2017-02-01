@@ -44,9 +44,9 @@
 					<h4>
 						{{ Auth::user()->getNamaLengkap() }}
 					</h4>
-					<p><span>Siswa / 12 RPL</span></p>
+					<p><span>{{ Auth::user()->username }}</span></p>
 					<!-- <p><span>Jl. Alkmar, Martopuro Purwosari - Pasuruan</span></p> -->
-					
+					<a class="ui primary basic button" href="{{ route('password.ganti') }}">Ganti Password</a>
 				</div>
 			</div>
 			<div class="sixteen wide mobile ten wide tablet twelve wide computer column">
@@ -56,13 +56,15 @@
 					@include('layout.alerts')<br>
 					<form class="ui grid form" action="{{ route('profil.edit') }}" method="post">
 						<div class="sixteen wide mobile eight wide tablet eight wide computer column">
-							{{-- <p>
-								<i class="at icon"></i>Username : 
-								<span><input type="text" name="username" value="{{ Request::old('username') ?: Auth::user()->username }}"></span>
+
+							<div class="field">
+								<label><i class="at icon"></i>Username : </label>
+								<input type="text" name="username" value="{{ Request::old('username') ?: Auth::user()->username }}">
 								@if($errors->has('username'))
 									<br><small>{{ $errors->first('username') }} </small>
 								@endif
-							</p> --}}
+							</div>
+
 							<div class="field">
 								<label><i class="at icon"></i>Nama Depan : </label>
 								<input type="text" name="nama_depan" value="{{ Request::old('nama_depan') ?: Auth::user()->nama_depan }}">
@@ -70,6 +72,7 @@
 									<br><small>{{ $errors->first('nama_depan') }} </small>
 								@endif
 							</div>
+
 							<div class="field">
 								<label><i class="at icon"></i>Nama Belakang : </label>
 								<input type="text" name="nama_belakang" value="{{ Request::old('nama_belakang') ?: Auth::user()->nama_belakang }}">
@@ -102,6 +105,40 @@
 								@endif
 							</div>
 
+							
+						</div>
+						<div class="sixteen wide mobile eight wide tablet eight wide computer column">
+
+
+							<div class="field">
+								<label><i class="whatsapp icon"></i>Hp/Whatsapp : </label>
+								<input type="text" name="no_hp" value="{{ Request::old('no_hp') ?: Auth::user()->no_hp }}">
+							</div>
+
+							<div class="field">
+								<label><i class="calendar outline icon"></i>Tanggal Lahir : </label>
+								<input type="date" data-date-format="DD MM YYYY" name="tanggal_lahir" value="{{ Request::old('tanggal_lahir') ?: Auth::user()->tanggal_lahir }}">
+								@if($errors->has('tanggal_lahir'))
+									<br><small>{{ $errors->first('tanggal_lahir') }} </small>
+								@endif
+							</div>
+
+							<div class="field">
+								<label><i class="home icon"></i>Alamat Lengkap : </label>
+								<input type="text" name="alamat" value="{{ Request::old('alamat') ?: Auth::user()->alamat }}">
+								@if($errors->has('alamat'))
+									<br><small>{{ $errors->first('alamat') }} </small>
+								@endif
+							</div>
+
+							<div class="field">
+								<label><i class="mail icon"></i>Email : </label>
+								<input type="text" name="email" value="{{ Request::old('email') ?: Auth::user()->email }}">
+								@if($errors->has('email'))
+									<br><small>{{ $errors->first('email') }} </small>
+								@endif
+							</div>
+
 							<div class="field">
 								<label><i class="tag icon"></i>Status : </label>
 								<div class="ui selection dropdown">
@@ -113,42 +150,6 @@
 										{{-- <div class="item" name="status" value="Guru" data-value="Guru">Guru</div> --}}
 									</div>
 								</div>
-							</div>
-							
-							{{-- <p><i class="user icon"></i>Status : <span>{{ Request::old('status') ?: Auth::user()->status }}</span></p> --}}
-						</div>
-						<div class="sixteen wide mobile eight wide tablet eight wide computer column">
-							{{-- <p>
-								<i class="at icon"></i>Password : 
-								<span><input type="password" name="nama_depan" value="{{ Request::old('password') ?: Auth::user()->password }}"></span>
-								@if($errors->has('password'))
-									<br><small>{{ $errors->first('password') }} </small>
-								@endif
-							</p> --}}
-							<div class="field">
-								<label><i class="whatsapp icon"></i>Hp/Whatsapp : </label>
-								<input type="text" name="no_hp" value="{{ Request::old('no_hp') ?: Auth::user()->no_hp }}">
-							</div>
-							<div class="field">
-								<label><i class="calendar outline icon"></i>Tanggal Lahir : </label>
-								<input type="date" data-date-format="DD MM YYYY" name="tanggal_lahir" value="{{ Request::old('tanggal_lahir') ?: Auth::user()->tanggal_lahir }}">
-								@if($errors->has('tanggal_lahir'))
-									<br><small>{{ $errors->first('tanggal_lahir') }} </small>
-								@endif
-							</div>
-							<div class="field">
-								<label><i class="home icon"></i>Alamat Lengkap : </label>
-								<input type="text" name="alamat" value="{{ Request::old('alamat') ?: Auth::user()->alamat }}">
-								@if($errors->has('alamat'))
-									<br><small>{{ $errors->first('alamat') }} </small>
-								@endif
-							</div>
-							<div class="field">
-								<label><i class="mail icon"></i>Email : </label>
-								<input type="text" name="email" value="{{ Request::old('email') ?: Auth::user()->email }}">
-								@if($errors->has('email'))
-									<br><small>{{ $errors->first('email') }} </small>
-								@endif
 							</div>
 							
 						</div>

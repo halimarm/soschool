@@ -25,11 +25,11 @@
 								<small>{{ $errors->first('password') }} </small>
 							@endif
 						</div>
-						<div class="required field {{ $errors->has('password') ? 'error' : '' }}">
+						<div class="required field {{ $errors->has('password_confirmation') ? 'error' : '' }}">
 							<label>Konfirmasi Password</label>
-							<input type="password" placeholder="password" name="password2">
-							@if($errors->has('password'))
-								<small>{{ $errors->first('password') }} </small>
+							<input type="password" placeholder="Konfirmasi Passowrd" name="password_confirmation">
+							@if($errors->has('password_confirmation'))
+								<small>{{ $errors->first('password_confirmation') }} </small>
 							@endif
 						</div>
 						<div class="required field {{ $errors->has('email') ? 'error' : '' }}">
