@@ -1,55 +1,31 @@
-<!-- <div class="sixteen wide mobile six wide tablet five wide computer column">
-			<div class="ui vertical menu">
-				<div class="item active">
-					<i class="world icon"></i>
-					<b>Aktifitas</b>
-				</div>
-				<div style="overflow-y:scroll;max-height: 500px;">
-					<a class="item">
-					<h5 class="ui image header">
-						<img src="../assets/uploads/user/no-photo.png" class="ui mini rounded image">
-						<div class="content">
-							<div class="header">Abd Halim Arumman</div>
-							<small>Upload tugas 8 menit yang lalu</small>
-						</div>
-					</h5>
-					</a>
-					<a class="item">
-						<h5 class="ui image header">
-							<img src="../assets/uploads/user/no-photo.png" class="ui mini rounded image">
-							<div class="content">
-								<div class="header">Wikan Abdillah</div>
-								<small>Upload tugas 21 menit yang lalu</small>
-							</div>
-						</h5>
-					</a>
-					<a class="item">
-						<h5 class="ui image header">
-							<img src="../assets/uploads/user/no-photo.png" class="ui mini rounded image">
-							<div class="content">
-								<div class="header">Khisan Ihza</div>
-								<small>Upload tugas 30 menit yang lalu</small>
-							</div>
-						</h5>
-					</a>
-					<a class="item">
-						<h5 class="ui image header">
-							<img src="../assets/uploads/user/no-photo.png" class="ui mini rounded image">
-							<div class="content">
-								<div class="header">M Wildan</div>
-								<small>Upload tugas 45 menit yang lalu</small>
-							</div>
-						</h5>
-					</a>
-					<a class="item">
-						<h5 class="ui image header">
-							<img src="../assets/uploads/user/no-photo.png" class="ui mini rounded image">
-							<div class="content">
-								<div class="header">Muhammad Ulum</div>
-								<small>Upload tugas 1 jam yang lalu</small>
-							</div>
-						</h5>
-					</a>
+<div class="sixteen wide mobile six wide tablet five wide computer column">
+	<div class="ui segment">
+		<p>Selamat Datang, <b>{{ Auth::user()->username }}</b></p>
+	</div>
+	<div class="ui calendar" id="calendar"></div>
+
+	<div class="ui segment">
+		<div class="ui list">
+
+			<div class="item">
+				<img class="ui avatar image" src="/assets/uploads/user/no-photo.png">
+				<div class="content">
+					<a class="header">Rachel</a>
+					<div class="description">
+						Mengirim Status <a><b></b></a> {{ Auth::user()->created_at->diffForHumans() }}
+					</div>
 				</div>
 			</div>
-		</div> -->
+			<div class="item">
+				<img class="ui avatar image" src="/assets/uploads/user/no-photo.png">
+				<div class="content">
+					<a class="header">Rachel</a>
+					<div class="description">
+						Membalas Komentar <a><b></b></a> {{ Auth::user()->created_at->diffForHumans() }}
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

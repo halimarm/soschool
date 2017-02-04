@@ -19,7 +19,7 @@ class ProfilController extends Controller
 			abort(404);
 		}
 
-		$statuses = $user->statuses()->notBalas()->get();
+		$statuses = $user->statuses()->notBalas()->orderBy('created_at', 'desc')->get();
 
 		return view('profil.index')
 		->with('user', $user)
@@ -78,7 +78,7 @@ class ProfilController extends Controller
 
 			$avatar = $request->file('avatar');
 			$filename = time() . '.' . $avatar->getClientOriginalExtension();
-			Image::make($avatar)->resize(300,300)->save( public_path('/assets/uploads/user/' . $filename) );
+			Image::make($avatar)->resize()->save( public_path('/assets/uploads/user/' . $filename) );
 
 			$user = Auth::user();
 			$user->avatar = $filename;

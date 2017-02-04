@@ -1,7 +1,7 @@
-				<form action="{{ route('status.post') }}" method="post" class="ui komentar form">
+				<form class="ui form" action="{{ route('status.post') }}" method="post" class="ui komentar form">
 					<div class="field">
-						<textarea name="status" rows="3" placeholder="Apakabar {{ Auth::user()->getNamaLengkap() }}?"></textarea>
+						<textarea name="status" data-autoresize rows="2" placeholder="Tulis Informasi"></textarea>
 					</div>
-					<input type="submit" name="kirim" value="Update Status" class="ui blue small submit icon button">
+					<button type="submit" name="kirim" class="ui blue submit icon button"><i class="icon send"></i> Kirim</button>
 					{{ csrf_field() }}
 				</form>

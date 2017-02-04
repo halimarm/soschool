@@ -70,7 +70,7 @@ body {
 	padding:6px 11px!important;
 	font-size:11px;
 	font-weight:bold;
-	opacity: 0.5;
+	opacity: 0.8;
 }
 /*table*/
 .ui.table{
@@ -84,17 +84,16 @@ body {
 	border-top:none;
 	border-right:none;
 	border-radius:0px;
-	-webkit-box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);
-	-moz-box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);
-	box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);
+	/*-webkit-box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);*/
+	/*-moz-box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);*/
+	/*box-shadow:0px 2px 6px 0px rgba(0,0,0,0.06);*/
 }
 .ui.segment,.ui.vertical.menu,.ui.card,.ui.basic.table {
 	box-shadow:none;
 	border:1px solid #f0f1f1;
 	border-radius:3px;
-	/*border: none;
-	*/
 }
+
 .ui.segment:hover {
 	/*box-shadow:0 1px 2px 0 rgba(34,36,38,.15);
 	*/
@@ -254,4 +253,104 @@ body {
 }
 .ui.threaded.comments .comment .comments{
 	    margin: -1.5em 0 -1em 3.50em;
+}
+
+.ui.form textarea {
+	resize: none;
+	box-sizing: border-box;
+	padding: 8px 10px;
+}
+
+.ui.card, .ui.cards>.card {
+	width: 100%;
+}
+.card .ui.large.input {
+	width: 100%;
+}
+.ui.avatar.image {
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.ui.card .content {
+	border-top: 1px solid #f0f1f1;
+}
+.ui.card .content.title a {
+	font-weight: bold;
+	font-size: 17px;
+}
+.ui.card .content span {
+	font-size: 11px;
+	padding-left: 5px;
+}
+
+.ui.card .content.komentar p {
+	padding-top: 5px;
+}
+.ui.card .content.komentar .meta {
+	font-size: 11px;
+}
+.ui.card .content.komentar {
+	border-left: 1px solid #74b9ff;
+}
+
+.ui.card>.content.title{
+	padding-bottom: 0px;
+}
+
+.ui.card>.content.status{
+	border: none;
+	padding-top: 12px;
+}
+
+.ui.card .panel-komentar {
+	background:#fdfdfd;
+	padding: 10px 15px;
+}
+.ui.card .panel-komentar span {
+	margin-right: 15px;
+	color: #666;
+	font-size: 12px;
+}
+
+.ui.card .komentar {
+	background:#fdfdfd;
+	color: #777;
+	left: 0.3px;
+}
+
+.ui.card .status {
+	font-size: 16px;
+	letter-spacing: 0.4px;
+	line-height: 1.3em;
+	color: #777;
+
+}
+
+.ui.card .ui.inverted.button {
+	padding: 2px;
+	margin: 5px;
+}
+.ui.card .ui.inverted.button.active, .ui.inverted.button:focus, .ui.inverted.button:hover {
+	background: none;
+	box-shadow: none !important;
+}
+.ui.card .ui.dropdown .menu>.item {
+	font-size: 12px;
+	padding: 9px 12px !important;
+}
+.ui.card .item .trash.icon {
+	margin-right: 0px;
+}
+
+
+
+.ui.card .extra.content input {
+	font-size: 14px;
+}
+
+.ui.calendar .ui.table tr td.today {
+	background: #74b9ff;
+	color: #fff;
+	font-weight: bold;
 }

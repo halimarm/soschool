@@ -12,7 +12,7 @@
 	</div>
 @endif
 
-@if (Session::has('sukses'))
+<!-- @if (Session::has('sukses'))
 	<div class="ui page active dimmer">
 		<div class="content">
 			<div class="center">
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 	</div>
-@endif
+@endif -->
 
 @if (Session::has('info-update'))
 	<div class="ui positive message">

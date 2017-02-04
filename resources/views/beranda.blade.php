@@ -10,11 +10,21 @@
 			<div class="ui segment">
 				<p><i class="icon announcement"></i><b>Dinding Informasi</b></p>
 			</div>
-			<div class="ui padded segment">
-				<!-- form status -->
+
+			<!-- form status -->
+			<!-- <div class="ui padded segment">
 				@include('beranda/status')
+			</div> -->
+			<div class="ui small modal">
+				<i class="close icon"></i>
+				<div class="header">Kirim Informasi</div>
+				<div class=" content">
+					@include('beranda/status')
+				</div>
+				
 			</div>
 
+			
 			
 			<!-- status'e wong2 -->
 			@if (!$statuses->count())
@@ -30,9 +40,9 @@
 				{!! $statuses->render() !!}
 			
 			@endif
-
+			
 			<!-- modal fullscreen -->
-			@include('user/modal')
+			<!-- @include('user/modal') -->
 			
 		</div>
 

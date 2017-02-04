@@ -10,6 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/assets/css/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/calendar.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<style type="text/css">
 	
@@ -21,7 +22,6 @@
 		<a class="item logo" href="{{ route('beranda') }}"><b>SOSCHOOL</b></a>
 		<a class="item" href="{{ route('beranda') }}"><i class="home icon"></i>Beranda</a>
 		<a class="item" href="{{ route('profil.index', ['username' => Auth::user()->username]) }}"><i class="user icon"></i>Profil</a>
-		{{-- <a class="item" href="{{ route('beranda') }}"><i class="mail icon"></i>Pesan</a> --}}
 		<!-- <a class="item" href="#"><i class="icon write"></i>Materi</a> -->
 		<!-- <a class="item" href="#"><i class="icon book"></i>Tugas</a> -->
 		<!-- <a class="item" href="pesan" data-inverted="" data-tooltip="Kirim Pesan" data-position="bottom center"><i class="mail icon"></i>Pesan</a> -->
@@ -40,10 +40,18 @@
 				<div class="results"></div>
 			</form>
 
+			<!-- <div class="item">
+				<a class="ui basic button" href="{{ route('beranda') }}"><i class="write icon"></i>Status</a>
+			</div> -->
 			<!-- <a href="" class="item" data-inverted="" data-tooltip="Kalender" data-position="bottom center"><i class="calendar outline icon"></i></a> -->
-			<a href="" class="item" data-inverted="" data-tooltip="Pemberitahuan" data-position="bottom center">
-				<i class="alarm outline icon"></i>
-			</a>
+
+			<div class="item">
+				<a class="circular ui basic icon button tulis" data-tooltip="Tulis Informasi" data-position="bottom center">
+					<i class="write icon"></i>
+				</a>
+			</div>
+
+
 			<!-- <div class="ui menu"> -->
 				<div class="ui dropdown item" href="/beranda">
 					<img class="ui avatar image" src="/assets/uploads/user/{{ Auth::user()->avatar }}">
@@ -69,17 +77,20 @@
 
 <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/semantic.min.js"></script>
+<script type="text/javascript" src="/assets/js/calendar.min.js"></script>
 <script type="text/javascript">
 
 	$('.ui .dropdown').dropdown();
 
-	// $('#modal').click(function(){
-	// 	$('.ui .long.modal').modal({
-	// 		blurring: true
-	// 	}).modal('show');
-	// });
-	$('#showKomentar').click(function() {
-		$('#Komentar').toggle();
+	$('.item .tulis').click(function(){
+		$('.small.modal').modal({
+			blurring: true
+		}).modal('show');
+	});
+
+
+	$('.actions .hideKomentar').click(function() {
+		$('.showKomentar').toggle();
 	});
 
 	$('.ui.medium.rounded.image.upload').dimmer({
@@ -90,7 +101,28 @@
 		$(this).closest('.message').transition('fade');
 	});
 	$('.page').dimmer('toggle');
+
+	// kelnder
+	$('#calendar').calendar({
+		type: 'date',
+		inline: true
+	});
+	// $('#tanggal').calendar({
+	// 	type: 'date'
+	// });
 	
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+		    var offset = this.offsetHeight - this.clientHeight;
+		 
+		    var resizeTextarea = function(el) {
+		        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+		    };
+		    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+		});
+	});
 </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>E-learning | @yield('title')</title>
+	<title>SOSCHOOL | @yield('title')</title>
 	<!-- Standard Meta -->
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -83,6 +83,10 @@
 <script type="text/javascript" src="assets/js/semantic.min.js"></script>
 <script type="text/javascript">
 $('.ui .dropdown').dropdown();
+$('.message .close').on('click', function(){
+		$(this).closest('.message').transition('fade');
+	});
+	$('.page').dimmer('toggle');
 </script>
 </body>
 </html>

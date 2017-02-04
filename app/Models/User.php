@@ -99,4 +99,6 @@ class User extends Authenticatable
         return (bool) $status->likes->where('user_id', $this->id)->count();
     }
 
+    
+
 }

@@ -29,4 +29,9 @@ class HomeController extends Controller
     {
     	return view('profil');
     }
+
+    public function berkas()
+    {
+    	return view('berkas');
+    }
 }

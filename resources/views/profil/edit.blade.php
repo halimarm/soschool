@@ -123,6 +123,18 @@
 								@endif
 							</div>
 
+							<!-- <div class="field">
+								<label><i class="calendar outline icon"></i>Tanggal Lahir : </label>
+								<div class="ui calendar" id="tanggal">
+				
+										<input name="tanggal_lahir" type="text" placeholder="tanggal/bulan/tahun" value="{{ Request::old('tanggal_lahir') ?: Auth::user()->tanggal_lahir }}"">
+										@if($errors->has('tanggal_lahir'))
+											<br><small>{{ $errors->first('tanggal_lahir') }} </small>
+										@endif
+					
+								</div>
+							</div> -->
+
 							<div class="field">
 								<label><i class="home icon"></i>Alamat Lengkap : </label>
 								<input type="text" name="alamat" value="{{ Request::old('alamat') ?: Auth::user()->alamat }}">

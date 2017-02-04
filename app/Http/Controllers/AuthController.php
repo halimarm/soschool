@@ -59,7 +59,6 @@ class AuthController extends Controller
 			'email' => $request->input('email'),
 			'username' => $request->input('username'),
 			'password' => bcrypt($request->input('password')),
-
 			'status' => $request->input('status'),
 			'nama_depan' => $request->input('nama_depan'),
 			'nama_belakang' => $request->input('nama_belakang'),
@@ -69,7 +68,7 @@ class AuthController extends Controller
 
 		]);
 
-		return redirect()->route('login')->with('sukses', 'Anda Telah Terdaftar, Silahkan Login');
+		return redirect()->back()->with('sukses', 'Anda Telah Terdaftar, Silahkan Login');
 	}
 
 	public function getLogout()

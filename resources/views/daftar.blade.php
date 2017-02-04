@@ -4,11 +4,24 @@
 
 @section('content')
 	<br>
+@if (Session::has('sukses'))
+	<div class="ui page active dimmer">
+		<div class="content">
+			<div class="center">
+				<h2 class="ui inverted icon header">
+					<i class="checkmark icon"></i>
+					Anda Telah Terdaftar, Silahkan Login!
+				</h2>
+			</div>
+		</div>
+	</div>
+@endif
 	<div class="ui grid container">
 		<div class="sixteen wide column">
 			<form class="ui form" action="{{ route('daftar') }}" method="POST">
 				<h3 class="ui header text center aligned">Daftar Member</h3><br>
 				<div class="ui grid">
+					
 					<div class="sixteen wide mobile eight wide tablet eight wide computer column">
 						<h4 class="ui dividing header">Informasi Login</h4>
 						<div class="required field {{ $errors->has('username') ? 'error' : '' }}">

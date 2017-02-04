@@ -25,14 +25,8 @@ Route::get('/', [
 
 ]);
 
-// Route::get('/alert', function(){
-// 	return redirect()->route('login')->with('info', 'You have signed up!');
-// });
 
-/**
- * authentication
- */
-
+// login & daftar
 Route::get('/login', [
 	'uses' => 'AuthController@getLogin',
 	'as' => 'login',
@@ -58,22 +52,6 @@ Route::get('/logout', [
 	'uses' => 'AuthController@getLogout',
 	'as' => 'logout',
 ]);
-
-
-
-
-// member
-// Route::get('/profil', 'HomeController@profil');
-// Route::get('/profil', [
-// 	'uses' => 'HomeController@profil',
-// 	'as' => 'profil',
-// ]);
-
-
-// Route::get('/daftar', 'UsersController@daftar');
-
-// Route::get('/beranda', 'UsersController@beranda');
-// Route::post('/beranda', 'UsersController@beranda');
 
 
 
@@ -118,12 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profil/edit/password', 'PasswordController@ganti')->name('password.ganti');
     Route::put('/profil/edit/password', 'PasswordController@update')->name('password.update');
 });
-// gambar profil
-// Route::get('/profil/avatar', [
-// 	'uses' => 'ProfilController@avatar',
-// 	'as' => 'user.avatar',
-// 	'middleware' => ['auth'],
-// ]);
+
 Route::post('/profil/avatar', [
 	'uses' => 'ProfilController@postAvatar',
 	'as' => 'profil.avatar',
@@ -152,4 +125,117 @@ Route::get('/status/{statusId}/suka', [
 	'middleware' => ['auth'],
 ]);
 
-Route::get('/carbon', 'StatusController@carbon');
+// Route::get('/carbon', 'StatusController@carbon');
+
+
+/**
+ * Admin 
+ */
+
+Route::group(['middleware' => ['web']], function () {
+    //Login Routes...
+    Route::get('/admin',function(){
+    	return redirect()->route('admin.login');
+    });
+    Route::get('/admin/login', [
+    	'uses' => 'AdminAuthController@getLogin',
+    	'middleware' => ['guest'],
+    ]);
+
+    Route::post('/admin/login', [
+		'uses' => 'AdminAuthController@postLogin',
+		'as' => 'admin.login',
+		
+	]);
+    Route::get('/admin/logout', [
+    	'uses' => 'AdminAuthController@adminLogout',
+    	'as' => 'admin.logout',
+    ]);
+
+
+	Route::get('/admin/member/{username}/detail', [
+		'uses' => 'AdminController@detail',
+		'as' => 'admin.member.detail',
+	]);
+
+	Route::get('/admin/dashboard', [
+		'uses' => 'AdminController@index',
+		'as' => 'admin.index',
+		
+	]);
+
+	Route::get('/admin/member', [
+		'uses' => 'AdminController@member',
+		'as' => 'admin.member',
+		
+	]);
+
+	// tambah member
+	Route::get('/admin/member/tambah', [
+		'uses' => 'AdminController@getTambahUser',
+		'as' => 'admin.member.tambah',
+		
+	]);
+
+	// HAPUS member
+	Route::post('/admin/member/{id}/hapus', [
+		'uses' => 'AdminController@hapus',
+		'as' => 'admin.member.hapus',
+		
+	]);
+	// HAPUS admin
+	Route::post('/admin/user/{id}/hapus', [
+		'uses' => 'AdminController@hapusAdmin',
+		'as' => 'admin.hapus',
+	]);
+	// HAPUS status
+	Route::post('/admin/status/{id}/hapus', [
+		'uses' => 'AdminController@statusHapus',
+		'as' => 'admin.status.hapus',
+		
+	]);
+	// HAPUS komentar
+	Route::post('/admin/komentar/{id}/hapus', [
+		'uses' => 'AdminController@komentarHapus',
+		'as' => 'admin.komentar.hapus',
+		
+	]);
+
+	// semua status
+	Route::get('/admin/status', [
+		'uses' => 'AdminController@status',
+		'as' => 'admin.status',
+		
+	]);
+
+	Route::get('/admin/komentar', [
+		'uses' => 'AdminController@komentar',
+		'as' => 'admin.komentar',
+		
+	]);
+
+	// pengaturan admin
+	Route::get('/admin/user', [
+		'uses' => 'AdminController@getUserAdmin',
+		'as' => 'admin.user',
+		
+	]);
+	Route::get('/admin/user/tambah', [
+		'uses' => 'AdminController@getTambahAdmin',
+		'as' => 'admin.tambah',
+		
+	]);
+	Route::post('/admin/user/tambah', [
+		'uses' => 'AdminController@postTambahAdmin',
+	]);
+
+});  
+
+
+
+// berkas
+
+Route::get('/berkas', [
+	'uses' => 'HomeController@berkas',
+	'as' => 'home.berkas'
+]);

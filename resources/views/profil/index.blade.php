@@ -7,6 +7,14 @@
 		<div class="ui grid container" id="main">
 			<div class="sixteen wide mobile six wide tablet four wide computer column" >
 				
+				<div class="ui small modal">
+					<i class="close icon"></i>
+					<div class="header">Kirim Informasi</div>
+					<div class=" content">
+						@include('beranda/status')
+					</div>
+				</div>
+
 				<div class="profil">
 					<img class="ui medium rounded image" src="/assets/uploads/user/{{ $user->avatar }}">
 					<h4><a href="{{ route('profil.index', ['username' => $user->username]) }}">

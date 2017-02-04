@@ -1,39 +1,26 @@
-						<style type="text/css">
-							.ui.threaded.comments .comment .comments {box-shadow: none;}
-							/*.ui.comments .comment>.avatar~.content{border-bottom: 1px solid #f1f1f1;padding-bottom: 20px;}*/
-						</style>
-						<div class="ui padded segment">
-							<div class="ui threaded comments">
-								<div class="ui comments">
-									<div class="comment">
-										<a class="avatar">
-											<img src="/assets/uploads/user/{{ $status->user->avatar }}">
-										</a>
-										<div class="content">
-											<a href="
-											{{ route('profil.index', ['username' => $status->user->username]) }}
-											" class="author">{{ $status->user->getNamaOrUsername() }}</a>
-											<div class="metadata">
-												{{-- <span class="date">{{ $status->created_at->diffForHumans() }}</span> --}}
-												<span class="date">{{ $status->waktu()->diffForHumans() }}</span>
-											</div>
-											<div class="text">
-												{{ $status->body }}
-											</div>
-											<div class="actions">
-												@if ($status->user->id)
-													<a href="{{ route('status.suka', ['statusId' => $status->id]) }}" class="save">
-														<i class="thumbs outline up icon"></i>{{ $status->likes->count() }} Suka
-													</a>
-												@endif
-												<a id="showKomentar">
-													<i class="comment outline icon"></i>
-													 Komentar
-												</a>
-											</div>
-										</div>
-										@include('user/komentar')
-									</div>
-								</div>
+					<div class="ui card">
+						<div class="content title">
+							<div class="right floated">
+								<form>
+									<a href=""><i class="trash icon"></i></a>
+								</form>
 							</div>
+							<a href="{{ route('profil.index', ['username' => $status->user->username]) }}"><img class="ui avatar image" src="/assets/uploads/user/{{ $status->user->avatar }}">{{ $status->user->getNamaOrUsername() }}</a>
+							<span class="date meta">{{ $status->waktu()->diffForHumans() }}</span>
 						</div>
+						<div class="content status">
+							{{ $status->body }}
+						</div>
+						<div class="content panel-komentar">
+
+							@if ($status->user->id)
+								<span><i class="thumbs up icon"></i><a href="{{ route('status.suka', ['statusId' => $status->id]) }}">{{ $status->likes->count() }} Suka</a></span>
+							@endif
+
+							<span><i class="comment icon"></i>{{ $status->replies->count() }} Komentar</span>
+						</div>
+
+				
+						@include('user/komentar')
+				
+					</div>

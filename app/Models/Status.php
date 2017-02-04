@@ -25,6 +25,11 @@ class Status extends Model
 		return $query->whereNull('parent_id');
 	}
 
+	public function scopeBalas($query)
+	{
+		return $query->whereNotNull('parent_id');
+	}
+
 	public function replies()
 	{
 		return $this->hasMany('App\Models\Status', 'parent_id');
@@ -34,6 +39,7 @@ class Status extends Model
 	{
 		return $this->morphMany('App\Models\Like', 'likeable');
 	}
+
 	public function waktu()
 	{
 		// waktu
