@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/assets/css/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/calendar.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<style type="text/css">
 	
@@ -19,9 +20,25 @@
 <body>
 <div class="ui menu">
 	<div class="ui container">
+
 		<a class="item logo" href="{{ route('beranda') }}"><b>SOSCHOOL</b></a>
 		<a class="item" href="{{ route('beranda') }}"><i class="home icon"></i>Beranda</a>
 		<a class="item" href="{{ route('profil.index', ['username' => Auth::user()->username]) }}"><i class="user icon"></i>Profil</a>
+		<a class="item" href="{{ route('berkas') }}"><i class="file icon"></i>Berkas</a>
+
+		@if (Auth::user()->jabatan == 'Guru')
+		
+
+		<div class="ui dropdown item">
+			<i class="settings icon"></i>Master
+			<div class="menu" style="font-size:14px;">
+				<a href="{{ route('berkas') }}" class="item"><i class="upload icon"></i>Upload Berkas</a>
+				<a href="{{ route('beranda') }}" class="item"><i class="users icon"></i>Data Member</a>
+			</div>
+  		</div>
+
+		@endif
+
 		<!-- <a class="item" href="#"><i class="icon write"></i>Materi</a> -->
 		<!-- <a class="item" href="#"><i class="icon book"></i>Tugas</a> -->
 		<!-- <a class="item" href="pesan" data-inverted="" data-tooltip="Kirim Pesan" data-position="bottom center"><i class="mail icon"></i>Pesan</a> -->
@@ -58,7 +75,7 @@
 					<div class="content">
 						<!-- models/user -->
 						<div class="ui sub header">{{ Auth::user()->getUsername() }}</div>
-						<small>Siswa</small>
+						<small>{{ Auth::user()->jabatan }}</small>
 					</div>
 					<div class="menu">
 						<a href="{{ route('profil.edit') }}" class="item"><i class="edit icon"></i>Edit Profil</a>
@@ -123,6 +140,7 @@
 		    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
 		});
 	});
+
 </script>
 </body>
 </html>

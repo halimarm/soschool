@@ -24,17 +24,17 @@ class PasswordController extends Controller
      */
     public function update()
     {
-        // custom validator
+        // custom validasi
         Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
             return Hash::check($value, \Auth::user()->password);
         });
 
-        // message for custom validation
+        // alert custom
         $messages = [
             'password' => 'Password lama tidak cocok.',
         ];
 
-        // validate form
+        // vallidasi
         $validator = Validator::make(request()->all(), [
             'current_password'      => 'required|password',
             'password'              => 'required|min:6|confirmed',
@@ -42,7 +42,6 @@ class PasswordController extends Controller
 
         ], $messages);
 
-        // if validation fails
         if ($validator->fails()) {
             return redirect()
                 ->back()

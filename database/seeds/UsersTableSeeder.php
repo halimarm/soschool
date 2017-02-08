@@ -26,10 +26,10 @@ class UsersTableSeeder extends Seeder
             'alamat' => 'Pasuruan',
             'jenis_kelamin' => 'Laki - Laki',
             'no_hp' => '08888888888',
-            'status' => 'Siswa',
+            'jabatan' => 'Siswa',
             'username' => 'halimarm',
             'password' => bcrypt('halimarm'),
-        ] );
+        ]);
 
     }
 }

@@ -52,7 +52,7 @@
 								</h4>
 							</td>
 							<td>{{ $user->email }}</td>
-							<td>{{ $user->status }}</td>
+							<td>{{ $user->jabatan }}</td>
 							<td>{{ $user->jurusan }}</td>
 							<td>{{ Carbon\Carbon::now() }}</td>
 							<td>

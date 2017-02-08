@@ -97,8 +97,14 @@
 								@endif
 							</div>
 
+
 							<div class="field">
-								<label><i class="hashtag icon"></i>Kelas Jurusan : </label>
+								@if (Auth::user()->jabatan == 'Siswa')
+									<label><i class="hashtag icon"></i>Kelas Jurusan : </label>
+								@else
+									<label><i class="hashtag icon"></i>Mapel : </label>
+								@endif
+
 								<input type="text" name="kelas_jurusan" value="{{ Request::old('kelas_jurusan') ?: Auth::user()->kelas_jurusan }}">
 								@if($errors->has('kelas_jurusan'))
 									<br><small>{{ $errors->first('kelas_jurusan') }} </small>
@@ -123,18 +129,6 @@
 								@endif
 							</div>
 
-							<!-- <div class="field">
-								<label><i class="calendar outline icon"></i>Tanggal Lahir : </label>
-								<div class="ui calendar" id="tanggal">
-				
-										<input name="tanggal_lahir" type="text" placeholder="tanggal/bulan/tahun" value="{{ Request::old('tanggal_lahir') ?: Auth::user()->tanggal_lahir }}"">
-										@if($errors->has('tanggal_lahir'))
-											<br><small>{{ $errors->first('tanggal_lahir') }} </small>
-										@endif
-					
-								</div>
-							</div> -->
-
 							<div class="field">
 								<label><i class="home icon"></i>Alamat Lengkap : </label>
 								<input type="text" name="alamat" value="{{ Request::old('alamat') ?: Auth::user()->alamat }}">
@@ -152,16 +146,18 @@
 							</div>
 
 							<div class="field">
-								<label><i class="tag icon"></i>Status : </label>
+								<label><i class="user icon"></i>Jabatan : </label>
 								<div class="ui selection dropdown">
-									<input type="hidden" name="status">
+									<input type="hidden" name="jabatan">
 									<i class="dropdown icon"></i>
-									<div class="default text" name="status">{{ Request::old('status') ?: Auth::user()->status }}</div>
+									<div class="default text" name="jabatan">{{ Request::old('jabatan') ?: Auth::user()->jabatan }}</div>
 									<div class="menu">
-										<div class="item" name="status" value="{{ Request::old('status') ?: Auth::user()->status }}" data-value="{{ Request::old('status') ?: Auth::user()->status }}">{{ Request::old('status') ?: Auth::user()->status }}</div>
-										{{-- <div class="item" name="status" value="Guru" data-value="Guru">Guru</div> --}}
+										<div class="item" name="jabatan" value="{{ Request::old('jabatan') ?: Auth::user()->jabatan }}" >{{ Request::old('jabatan') ?: Auth::user()->jabatan }}</div>
 									</div>
 								</div>
+								@if($errors->has('jabatan'))
+									<br><small>{{ $errors->first('jabatan') }} </small>
+								@endif
 							</div>
 							
 						</div>

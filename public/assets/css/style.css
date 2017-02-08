@@ -1,7 +1,9 @@
 body {
 	background-color:#fff;
-	letter-spacing: 0.2px;
+	letter-spacing: 0.3px;
 	color: #4a4a4a;
+	font-family: 'Roboto';
+
 }
 
 
@@ -15,6 +17,7 @@ body {
 	/*background-color: #f8f9fa;*/
 	background-color: #fff;
 	margin-bottom: 2.2em;
+	font-family: 'Roboto';
 }
 .ui.menu .item.logo {
 	margin-right:1%;
@@ -226,6 +229,11 @@ body {
 	padding-left: 9em;
 	padding-top: 2em;
 	padding-bottom:2.5em;
+}
+.ui.sub.header {
+	font-family: 'Roboto', sans-serif;
+	text-transform: none;
+	letter-spacing: 0.3px;
 }
 
 /*comments*/

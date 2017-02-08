@@ -42,7 +42,7 @@ class ProfilController extends Controller
 			// 'jenis_kelamin' => 'max:50',
 			'no_hp' => 'max:12',
 			'kelas_jurusan' => 'max:50',
-			// 'status' => 'max:50',
+			// 'jabatan' => 'max:50',
 			'tanggal_lahir' => 'max:50',
 			// 'avatar' => 'max:50',
 
@@ -57,7 +57,7 @@ class ProfilController extends Controller
 			// 'jenis_kelamin' => $request->input('jenis_kelamin'),
 			'no_hp' => $request->input('no_hp'),
 			'kelas_jurusan' => $request->input('kelas_jurusan'),
-			// 'status' => $request->input('status'),
+			// 'jabatan' => $request->input('jabatan'),
 			'tanggal_lahir' => $request->input('tanggal_lahir'),
 			// 'avatar' => $request->input('avatar'),
 		]);

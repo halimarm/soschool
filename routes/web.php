@@ -139,7 +139,6 @@ Route::group(['middleware' => ['web']], function () {
     });
     Route::get('/admin/login', [
     	'uses' => 'AdminAuthController@getLogin',
-    	'middleware' => ['guest'],
     ]);
 
     Route::post('/admin/login', [
@@ -237,5 +236,6 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('/berkas', [
 	'uses' => 'HomeController@berkas',
-	'as' => 'home.berkas'
+	'as' => 'berkas'
 ]);
+

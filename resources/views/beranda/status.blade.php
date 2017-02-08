@@ -1,4 +1,4 @@
-				<form class="ui form" action="{{ route('status.post') }}" method="post" class="ui komentar form">
+				<form class="ui form tulis" action="{{ route('status.post') }}" method="post" class="ui komentar form">
 					<div class="field">
 						<textarea name="status" data-autoresize rows="2" placeholder="Tulis Informasi"></textarea>
 					</div>

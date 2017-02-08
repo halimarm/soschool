@@ -33,11 +33,13 @@
 							<p><i class="at icon"></i>Nama Lengkap : <span>{{ $user->getNamaLengkap() }}</span></p>
 							<p><i class="user icon"></i>Jenis Kelamin : <span>{{ $user->jenis_kelamin }}</span></p>
 							<p><i class="hashtag icon"></i>Kelas Jurusan : <span>{{ $user->kelas_jurusan }}</span></p>
-							<p><i class="tag icon"></i>Status : <span>{{ $user->status }}</span></p>
+							<p><i class="tag icon"></i>Jabatan : <span>{{ $user->jabatan }}</span></p>
 
 						</div>
 						<div class="sixteen wide mobile eight wide tablet eight wide computer column">
+							@if (Auth::user()->jabatan == 'Guru')
 							<p><i class="whatsapp icon"></i>Hp/Whatsapp : <span>{{ $user->no_hp }}</span></p>
+							@endif
 							<p><i class="calendar outline icon"></i>Tanggal Lahir : <span>{{ $user->tanggal_lahir }}</span></p>
 							<p><i class="home icon"></i>Alamat Lengkap : <span>{{ $user->alamat }}</span></p>
 							<p><i class="mail icon"></i>Email : <span>{{ $user->email }}</span></p>

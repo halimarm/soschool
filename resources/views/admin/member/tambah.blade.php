@@ -59,18 +59,18 @@
 									@endif
 								</div>
 								<div class="required field {{ $errors->has('username') ? 'error' : '' }}">
-									<label>Status</label>
+									<label>Jabatan</label>
 									<div class="ui selection dropdown">
-										<input type="hidden" name="status">
+										<input type="hidden" name="jabatan">
 										<i class="dropdown icon"></i>
-										<div class="default text">Status</div>
+										<div class="default text">Jabatan</div>
 										<div class="menu">
-											<div class="item" name="status" value="Siswa" data-value="Siswa">Siswa</div>
-											<div class="item" name="status" value="Guru" data-value="Guru">Guru</div>
+											<div class="item" name="jabatan" value="Siswa" data-value="Siswa">Siswa</div>
+											<div class="item" name="jabatan" value="Guru" data-value="Guru">Guru</div>
 										</div>
 									</div>
-									@if($errors->has('status'))
-										<small>{{ $errors->first('status') }} </small>
+									@if($errors->has('jabatan'))
+										<small>{{ $errors->first('jabatan') }} </small>
 									@endif
 								</div>
 							</div>

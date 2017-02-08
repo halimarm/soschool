@@ -9,11 +9,6 @@
 	<!-- main -->
 	<div class="ui grid text container " id="main">
 		<div class="sixteen wide mobile ten wide tablet sixteen wide computer column">
-			<button class="ui button primary">Upload berkas</button>
-			<div class="ui segment">
-				<p><i class="icon save"></i><b>Berkas</b></p>
-			</div>
-
 
 				<div class="ui segment">
 					<div class="ui divided items">
@@ -27,12 +22,12 @@
 								<div class="description">
 									<p>Untuk semua kelas 12 RPL,TKJ & MM</p>
 								</div>
-								<div class="extra">
+								<!-- <div class="extra">
 									<div class="ui label"><i class="unhide icon"></i>120</div>
 									<a class="ui label">
 										<i class="download icon"></i> Download
 									</a>
-								</div>
+								</div> -->
 
 							</div>
 						</div>
@@ -41,8 +36,6 @@
 			
 			
 		</div>
-
-		@include('beranda/aktifitas')
 
 	</div>
 

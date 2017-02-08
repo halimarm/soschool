@@ -23,7 +23,7 @@ class User extends Authenticatable
         'kelas_jurusan',
         'alamat',
         'no_hp',
-        'status',
+        'jabatan',
         'tanggal_lahir',
         'avatar',
     ];

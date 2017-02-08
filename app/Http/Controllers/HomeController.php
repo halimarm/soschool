@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\User;
 use App\Models\Status;
 
 
@@ -34,4 +35,5 @@ class HomeController extends Controller
     {
     	return view('berkas');
     }
+    
 }

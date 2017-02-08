@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->integer('no_hp')->nullable();
-            $table->string('status')->nullable();
+            $table->string('jabatan')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->string('avatar')->default('no-photo.png');
             $table->string('remember_token')->nullable();

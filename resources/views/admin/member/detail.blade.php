@@ -31,7 +31,7 @@
 										<p><i class="at icon"></i>Nama Lengkap : <span>{{ $user->getNamaLengkap() }}</span></p>
 										<p><i class="user icon"></i>Jenis Kelamin : <span>{{ $user->jenis_kelamin }}</span></p>
 										<p><i class="hashtag icon"></i>Kelas Jurusan : <span>{{ $user->kelas_jurusan }}</span></p>
-										<p><i class="tag icon"></i>Status : <span></span>{{ $user->status }}</p>
+										<p><i class="tag icon"></i>Jabatan : <span></span>{{ $user->jabatan }}</p>
 
 									</div>
 									<div class="sixteen wide mobile eight wide tablet eight wide computer column">
