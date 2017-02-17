@@ -1,9 +1,12 @@
 				@foreach ($status->replies as $balas)
 					<div class="content komentar">
 						<div class="right floated">
-							<form>
-								<a href=""><i class="close icon"></i></a>
-							</form>
+							@if (Auth::user()->id == $status->user_id)
+								<form action="{{ route('komentar.hapus', ['statusId' => $status->id]) }}" method="post">
+									<button class="del"><i class="close icon"></i></button>
+									{{ csrf_field() }}
+								</form>
+							@endif
 						</div>
 						<a href="{{ route('profil.index', ['username' => $balas->user->username]) }}"><img class="ui avatar image" src="/assets/uploads/user/{{ $balas->user->avatar }}"><b>{{ $balas->user->getNamaOrUsername() }}</b></a><span class="date meta">{{ $balas->created_at->diffForHumans() }}</span>
 						<p>{{ $balas->body }}</p>

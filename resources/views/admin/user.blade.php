@@ -65,7 +65,7 @@
 							<td>{{ $admin->email }}</td>
 							<td>{{ $admin->username }}</td>
 							<td>
-								<a class="ui icon tiny button" href=""><i class="lock icon"></i>Ganti Password</a>
+								<a class="ui icon tiny button" href="{{ route('admin.gantipass') }}"><i class="lock icon"></i>Ganti Password</a>
 							</td>
 							<td>{{ Carbon\Carbon::now() }}</td>
 							<td>

@@ -22,12 +22,12 @@
 								<div class="description">
 									<p>Untuk semua kelas 12 RPL,TKJ & MM</p>
 								</div>
-								<!-- <div class="extra">
+								<div class="extra">
 									<div class="ui label"><i class="unhide icon"></i>120</div>
 									<a class="ui label">
 										<i class="download icon"></i> Download
 									</a>
-								</div> -->
+								</div>
 
 							</div>
 						</div>

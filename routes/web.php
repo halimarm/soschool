@@ -91,12 +91,16 @@ Route::post('/profil/edit', [
 	'uses' => 'ProfilController@postProfilEdit',
 	'middleware' => ['auth'],
 ]);
-
+// admin
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/user/edit/password', 'PasswordController@gantiAdmin')->name('admin.gantipass');
+    Route::put('/admin/user/edit/password', 'PasswordController@updateAdmin')->name('admin.updateAdmin');
+});
+// member
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profil/edit/password', 'PasswordController@ganti')->name('password.ganti');
     Route::put('/profil/edit/password', 'PasswordController@update')->name('password.update');
 });
-
 Route::post('/profil/avatar', [
 	'uses' => 'ProfilController@postAvatar',
 	'as' => 'profil.avatar',
@@ -123,6 +127,16 @@ Route::get('/status/{statusId}/suka', [
 	'uses' => 'StatusController@getSuka',
 	'as' => 'status.suka',
 	'middleware' => ['auth'],
+]);
+
+// hapus status member
+Route::post('/status/{id}/hapus', [
+	'uses' => 'HomeController@statusHapus',
+	'as' => 'status.hapus',
+]);
+Route::post('/komentar/{id}/hapus', [
+	'uses' => 'HomeController@komentarHapus',
+	'as' => 'komentar.hapus',
 ]);
 
 // Route::get('/carbon', 'StatusController@carbon');
@@ -237,5 +251,10 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/berkas', [
 	'uses' => 'HomeController@berkas',
 	'as' => 'berkas'
+]);
+
+Route::get('/member', [
+	'uses' => 'HomeController@member',
+	'as' => 'member'
 ]);
 

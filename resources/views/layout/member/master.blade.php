@@ -33,7 +33,7 @@
 			<i class="settings icon"></i>Master
 			<div class="menu" style="font-size:14px;">
 				<a href="{{ route('berkas') }}" class="item"><i class="upload icon"></i>Upload Berkas</a>
-				<a href="{{ route('beranda') }}" class="item"><i class="users icon"></i>Data Member</a>
+				<a href="{{ route('member') }}" class="item"><i class="users icon"></i>Data Member</a>
 			</div>
   		</div>
 

@@ -55,6 +55,7 @@
 		
 		<form class="ui large form" action="{{ route('admin.login') }}" method="post">
 			<div class="ui segment">
+				
 				<h2 class="ui teal image header">
 		<!-- <img src="assets/images/logo.png" class="image"> -->
 					<div class="content">.:: Login Administrator ::.</div>

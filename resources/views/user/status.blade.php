@@ -1,9 +1,13 @@
+						
 					<div class="ui card">
 						<div class="content title">
 							<div class="right floated">
-								<form>
-									<a href=""><i class="trash icon"></i></a>
+								@if (Auth::user()->id == $status->user_id)
+									<form action="{{ route('status.hapus', ['statusId' => $status->id]) }}" method="post">
+										<button class="del"><i class="close icon"></i></button>
+										{{ csrf_field() }}
 								</form>
+								@endif
 							</div>
 							<a href="{{ route('profil.index', ['username' => $status->user->username]) }}"><img class="ui avatar image" src="/assets/uploads/user/{{ $status->user->avatar }}">{{ $status->user->getNamaOrUsername() }}</a>
 							<span class="date meta">{{ $status->waktu()->diffForHumans() }}</span>

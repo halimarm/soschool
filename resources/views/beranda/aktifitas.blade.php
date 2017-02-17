@@ -4,7 +4,7 @@
 	</div>
 	<div class="ui calendar" id="calendar"></div>
 
-	<div class="ui segment">
+	<!-- <div class="ui segment">
 		<div class="ui list">
 
 			<div class="item">
@@ -27,5 +27,5 @@
 			</div>
 			
 		</div>
-	</div>
+	</div> -->
 </div>

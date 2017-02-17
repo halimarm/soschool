@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Admin;
 use Auth;
 use Hash;
 use Validator;
@@ -17,6 +18,11 @@ class PasswordController extends Controller
     public function ganti()
     {
         return view('password.ganti');
+    }
+
+    public function gantiAdmin()
+    {
+        return view('admin.gantipass');
     }
 
     /**
@@ -50,6 +56,43 @@ class PasswordController extends Controller
 
         // update password
         $user = User::find(Auth::id());
+
+        $user->password = bcrypt(request('password'));
+        $user->save();
+
+        return redirect()
+            ->route('password.ganti')
+            ->withSuccess('Password Telah Diganti');
+    }
+
+    public function updateAdmin()
+    {
+        // custom validasi
+        Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
+            return Hash::check($value, \Auth::admin()->password);
+        });
+
+        // alert custom
+        $messages = [
+            'password' => 'Password lama tidak cocok.',
+        ];
+
+        // vallidasi
+        $validator = Validator::make(request()->all(), [
+            'current_password'      => 'required|password',
+            'password'              => 'required|min:6|confirmed',
+            'password_confirmation' => 'required',
+
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors());
+        }
+
+        // update password
+        $user = Admin::find(Auth::id());
 
         $user->password = bcrypt(request('password'));
         $user->save();
