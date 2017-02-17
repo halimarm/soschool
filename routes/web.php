@@ -248,13 +248,31 @@ Route::group(['middleware' => ['web']], function () {
 
 // berkas
 
-Route::get('/berkas', [
-	'uses' => 'HomeController@berkas',
-	'as' => 'berkas'
-]);
+// Route::get('/berkas', [
+// 	'uses' => 'HomeController@berkas',
+// 	'as' => 'berkas'
+// ]);
 
 Route::get('/member', [
 	'uses' => 'HomeController@member',
 	'as' => 'member'
 ]);
 
+
+// aksi berkas
+
+Route::get('/berkas', [
+	'uses' => 'BerkasController@index',
+	'as' => 'berkas.index'
+]);
+
+Route::get('/berkas/upload', [
+	'uses' => 'BerkasController@upload',
+	'as' => 'berkas.upload',
+]);
+
+Route::post('/upload/upload', [
+	'uses' => 'BerkasController@upload',
+]);
+
+// Route::get('/ber', 'BerkasController@ber');

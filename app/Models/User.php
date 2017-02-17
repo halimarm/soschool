@@ -99,6 +99,11 @@ class User extends Authenticatable
         return (bool) $status->likes->where('user_id', $this->id)->count();
     }
 
+    // berkas
+    public function berkas()
+    {
+        return $this->hasMany('App\Models\Berkas', 'user_id');
+    }
     
 
 }

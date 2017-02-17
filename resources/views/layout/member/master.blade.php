@@ -24,7 +24,7 @@
 		<a class="item logo" href="{{ route('beranda') }}"><b>SOSCHOOL</b></a>
 		<a class="item" href="{{ route('beranda') }}"><i class="home icon"></i>Beranda</a>
 		<a class="item" href="{{ route('profil.index', ['username' => Auth::user()->username]) }}"><i class="user icon"></i>Profil</a>
-		<a class="item" href="{{ route('berkas') }}"><i class="file icon"></i>Berkas</a>
+		<a class="item" href="{{ route('berkas.index') }}"><i class="file icon"></i>Berkas</a>
 
 		@if (Auth::user()->jabatan == 'Guru')
 		
@@ -32,7 +32,7 @@
 		<div class="ui dropdown item">
 			<i class="settings icon"></i>Master
 			<div class="menu" style="font-size:14px;">
-				<a href="{{ route('berkas') }}" class="item"><i class="upload icon"></i>Upload Berkas</a>
+				<a href="{{ route('berkas.upload') }}" class="item"><i class="upload icon"></i>Upload Berkas</a>
 				<a href="{{ route('member') }}" class="item"><i class="users icon"></i>Data Member</a>
 			</div>
   		</div>
