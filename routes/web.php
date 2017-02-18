@@ -255,7 +255,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('/member', [
 	'uses' => 'HomeController@member',
-	'as' => 'member'
+	'as' => 'member',
 ]);
 
 
@@ -271,8 +271,14 @@ Route::get('/berkas/upload', [
 	'as' => 'berkas.upload',
 ]);
 
-Route::post('/upload/upload', [
-	'uses' => 'BerkasController@upload',
+Route::post('/berkas/{id}/hapus', [
+	'uses' => 'BerkasController@hapus',
+	'as' => 'berkas.hapus',
+]);
+
+Route::post('/berkas/upload/proses', [
+	'uses' => 'BerkasController@proses',
+	'as' => 'berkas.proses'
 ]);
 
 // Route::get('/ber', 'BerkasController@ber');

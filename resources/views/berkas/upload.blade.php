@@ -3,9 +3,8 @@
 @section('title', 'Selamat Datang')
 
 @section('content')
-<style type="text/css">
-	.ui.divided.items .icon {padding-right: 0px!important;}
-</style>
+
+@if (Auth::user()->jabatan == 'Guru')
 	<!-- main -->
 	<div class="ui grid text container">
             <div class="eight wide mobile eight wide tablet sixteen wide computer column">
@@ -18,9 +17,14 @@
                         </div>
                     @endif
                     <br>
-                    <form class="ui grid form" role="form" action="{{ route('admin.updateAdmin') }}" method="post">
+                    <form class="ui grid form" role="form" action="{{ route('berkas.proses') }}" method="post" enctype="multipart/form-data" files="true">
                         <div class="sixteen wide mobile eight wide tablet sixteen wide computer column">
                            
+                           	<div class="field">
+                                <label for="nama"><i class="hashtag icon"></i>Nama : </label>
+                           		<input type="hidden" placeholder="{{ Auth::user()->id }}" name="id">
+                        		<input type="text" name="username" placeholder="{{ Auth::user()->username }}" class="form-control" disabled> 
+                           	</div>
 
                             <div class="field {{ $errors->has('nama') ? 'error' : '' }}">
                                 <label for="nama"><i class="hashtag icon"></i>Judul : </label>
@@ -56,7 +60,7 @@
                         
                         
                         {{ csrf_field() }}
-                        {{ method_field('put') }}
+  
                     </form>
 
                 </div>
@@ -66,5 +70,13 @@
         </div>
 
 	</div>
+@else 
+
+    <div class="ui text container">
+        <h1>Halaman tidak ditemukan</h1>
+        {!! redirect()->route('beranda') !!}
+    </div>
+
+@endif
 
 @endsection

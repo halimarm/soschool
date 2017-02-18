@@ -3,9 +3,8 @@
 @section('title', 'Selamat Datang')
 
 @section('content')
-<style type="text/css">
-	.ui.divided.items .icon {padding-right: 0px!important;}
-</style>
+
+@if (Auth::user()->jabatan == 'Guru')
 	<!-- main -->
 	<div class="ui grid container " id="main">
 		<div class="sixteen wide mobile ten wide tablet sixteen wide computer column">
@@ -57,5 +56,13 @@
 		</div>
 
 	</div>
+@else 
+
+	<div class="ui text container">
+        <h1>Halaman tidak ditemukan</h1>
+        {!! redirect()->route('beranda') !!}
+    </div>
+
+@endif
 
 @endsection

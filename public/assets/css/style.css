@@ -373,3 +373,7 @@ button.del {
 	border: none;
 	background: none;
 }
+
+.extra .ui.dropdown .menu>.item {
+	padding: 7px 9px !important;
+}

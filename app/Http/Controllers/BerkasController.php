@@ -39,7 +39,7 @@ class BerkasController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function proses(Request $request)
     {
 
 		$this->validate($request, [
@@ -48,26 +48,38 @@ class BerkasController extends Controller
 			'nama_file' => 'required|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx,rar,zip',
 		]);
 
+        $user = User::first();
+
 		$berkas = new Berkas($request->input());
+
+        // dd($request->input());
+        // $imageName = time().'.'.$request->image->getClientOriginalExtension();
+
+        $berkas->user_id = Auth::user()->id;
+
 
 		if ($file = $request->hasFile('nama_file')) {
 
 			$file = $request->file('nama_file') ;
 
 			$namaFile = $file->getClientOriginalName();
-			$destinationPath = public_path().'/berkas/';
+			$destinationPath = public_path().'/file/berkas/';
 			$file->move($destinationPath, $namaFile);
 
 			$berkas->nama_file = $namaFile;
 
 		}
 
-		// $berkas->save();
-
-		dd($berkas);
+		$berkas->save();
 
 		return redirect()->route('berkas.index')->with('success', 'Uploaded:)');
     	
+    }
+
+    public function hapus($id)
+    {
+    	Berkas::find($id)->delete();
+        return redirect()->back()->with('delete-berkas','berkas telah dihapus');
     }
 
     public function ber()

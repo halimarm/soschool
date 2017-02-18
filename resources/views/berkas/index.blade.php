@@ -25,14 +25,32 @@
 								</div>
 								<div class="extra">
 									<div class="ui basic label"><i class="tag icon"></i>{{ $berkas->nama_file }}</div>
-									<a href='{{ asset("berkas/$berkas->nama_file") }}' class="ui label">
+									<a href='{{ asset("/file/berkas/$berkas->nama_file") }}' class="ui label">
 										<i class="download icon"></i> Download
 									</a>
+
+									@if (Auth::user()->id == $berkas->user_id)
+										<div class="ui inline dropdown right floated">
+											<i class="angle down icon"></i>
+											<div class="menu">
+												<div class="item">
+													
+														<form action="{{ route('berkas.hapus', ['berkasId' => $berkas->id]) }}" method="post">
+															<button class="del"><i class="close icon"></i>Hapus</button>
+															{{ csrf_field() }}
+														</form>
+													
+												</div>
+											</div>
+										</div>
+									@endif
 								</div>
 
 							</div>
 						</div>
 					</div>
+
+
 				</div>
 			@endforeach
 			

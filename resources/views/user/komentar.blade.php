@@ -1,8 +1,8 @@
 				@foreach ($status->replies as $balas)
 					<div class="content komentar">
 						<div class="right floated">
-							@if (Auth::user()->id == $status->user_id)
-								<form action="{{ route('komentar.hapus', ['statusId' => $status->id]) }}" method="post">
+							@if (Auth::user()->id == $balas->user_id)
+								<form action="{{ route('komentar.hapus', ['balasId' => $balas->id]) }}" method="post">
 									<button class="del"><i class="close icon"></i></button>
 									{{ csrf_field() }}
 								</form>
