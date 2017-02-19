@@ -45,7 +45,7 @@
 							<td>{{ $status->id }}</td>
 							<td class="single line">
 								<h4 class="ui image header">
-									<img class="ui mini rounded image" src="/assets/uploads/user/no-photo.png" alt="Nama Lengkap">
+									<img class="ui mini rounded image" src="/assets/uploads/user/{{ $status->user->avatar }}" alt="Nama Lengkap">
 									<div class="content">
 										<a href="">{{ $status->user->getNamaLengkap() }}</a>
 										<div class="sub header">{{ $status->user->username }}</div>
