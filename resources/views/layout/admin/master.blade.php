@@ -6,8 +6,8 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/assets/css/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/semantic.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/admin.css') }}">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 
 					<b>{{ auth('admin')->user()->nama }}</b> <i class="dropdown icon"></i>
 					<div class="menu">
-						<div class="item"><i class="setting icon"></i>Pengaturan</div>
+						<a href="{{ route('admin.user') }}" class="item"><i class="user icon"></i>Admin</a>
 						<a href="{{ route('admin.logout') }}" class="item"><i class="log out icon"></i>Keluar</a>
 					</div>
 				</div> 
@@ -49,6 +49,7 @@
 			<div class="sub-title"><i class="circle icon"></i>overview</div>
 			<a href="{{ route('admin.index') }}" class="item"><i class="dashboard icon"></i>Dashboard</a>
 			<a href="{{ route('admin.member') }}" class="item"><i class="user icon"></i>Member</a>
+			<a href="{{ route('admin.berkas') }}" class="item"><i class="user icon"></i>Berkas</a>
 			<a href="{{ route('admin.status') }}" class="item"><i class="write icon"></i>Status</a>
 			<a href="{{ route('admin.komentar') }}" class="item"><i class="comment icon"></i>Komentar</a>
 
@@ -63,8 +64,9 @@
 	<!-- end -->
 
 </div>
-<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/js/semantic.min.js"></script>
+<script type="text/javascript" src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/assets/js/semantic.min.js') }}"></script>
+
 <script type="text/javascript">
 $('.ui .dropdown').dropdown();
 $('.ui.sidebar')

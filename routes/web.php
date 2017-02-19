@@ -177,9 +177,28 @@ Route::group(['middleware' => ['web']], function () {
 		
 	]);
 
+
 	Route::get('/admin/member', [
 		'uses' => 'AdminController@member',
 		'as' => 'admin.member',
+		
+	]);
+
+	Route::get('/admin/berkas', [
+		'uses' => 'AdminController@berkas',
+		'as' => 'admin.berkas',
+		
+	]);
+
+	// tambah berkas
+	Route::get('/admin/berkas/tambah', [
+		'uses' => 'AdminController@tambahBerkas',
+		'as' => 'admin.berkas.tambah',
+		
+	]);
+	Route::post('/admin/berkas/proses', [
+		'uses' => 'AdminController@prosesBerkas',
+		'as' => 'admin.berkas.proses',
 		
 	]);
 
@@ -219,6 +238,12 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'AdminController@komentarHapus',
 		'as' => 'admin.komentar.hapus',
 		
+	]);
+
+	// HAPUS berkas
+	Route::post('/admin/berkas/{id}/hapus', [
+		'uses' => 'AdminController@hapusBerkas',
+		'as' => 'admin.berkas.hapus',
 	]);
 
 	// semua status
@@ -289,3 +314,12 @@ Route::post('/berkas/upload/proses', [
 ]);
 
 // Route::get('/ber', 'BerkasController@ber');
+
+// charts
+
+Route::get('/charts', function(){
+
+	$trackers = App\Models\Tracker::all();
+
+	return view('admin.charts')->with('trackers', $trackers);
+});

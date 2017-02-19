@@ -9,10 +9,10 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/assets/css/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/calendar.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/semantic.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/calendar.min.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.css') }}">
 	<style type="text/css">
 	
 	</style>
@@ -92,9 +92,9 @@
 @yield('content')
 
 
-<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/js/semantic.min.js"></script>
-<script type="text/javascript" src="/assets/js/calendar.min.js"></script>
+<script type="text/javascript" src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/assets/js/semantic.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/assets/js/calendar.min.js') }}"></script>
 <script type="text/javascript">
 
 	$('.ui .dropdown').dropdown();

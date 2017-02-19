@@ -53,7 +53,10 @@
 
 				</div>
 			@endforeach
-			
+
+			@if ($berkases->count() == 0)
+				<p>Tidak Ada Berkas</p>
+			@endif
 		</div>
 
 	</div>

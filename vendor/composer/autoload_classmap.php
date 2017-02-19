@@ -9,6 +9,7 @@ return array(
     'AdminsTableSeeder' => $baseDir . '/database/seeds/AdminsTableSeeder.php',
     'CreateAdminsTable' => $baseDir . '/database/migrations/2017_02_03_001330_create_admins_table.php',
     'CreateBerkasTable' => $baseDir . '/database/migrations/2017_02_17_090141_create_berkas_table.php',
+    'CreateCountersTable' => $baseDir . '/database/migrations/2017_02_19_055314_create_counters_table.php',
     'CreateLikeableTable' => $baseDir . '/database/migrations/2017_01_24_144831_create_likeable_table.php',
     'CreateStatusTable' => $baseDir . '/database/migrations/2017_01_23_144219_create_status_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2017_01_13_133029_create_users_table.php',

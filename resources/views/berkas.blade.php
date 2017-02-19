@@ -3,11 +3,11 @@
 @section('title', 'Selamat Datang')
 
 @section('content')
-<style type="text/css">
+<!-- <style type="text/css">
 	.ui.divided.items .icon {padding-right: 0px!important;}
-</style>
-	<!-- main -->
-	<div class="ui grid text container " id="main">
+</style> -->
+
+	<!-- <div class="ui grid text container " id="main">
 		<div class="sixteen wide mobile ten wide tablet sixteen wide computer column">
 
 				<div class="ui segment">
@@ -37,6 +37,6 @@
 			
 		</div>
 
-	</div>
+	</div> -->
 
 @endsection

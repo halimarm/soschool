@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Tracker;
+use App\Models\Berkas;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,8 +25,9 @@ class AdminController extends Controller
         $admin = Admin::all();
         $status = Status::NotBalas()->get();
         $komentar = Status::Balas()->get();
+        $trackers = Tracker::all();
 
-    	return view('admin.index')->with('user', $user)->with('admin', $admin)->with('status', $status)->with('komentar', $komentar);
+    	return view('admin.index')->with('user', $user)->with('admin', $admin)->with('status', $status)->with('komentar', $komentar)->with('trackers', $trackers);;
     }
 
     public function login()
@@ -141,6 +145,13 @@ class AdminController extends Controller
         return redirect()->back()->with('delete-admin','Admin telah dihapus');
     }
 
+    // HAPUS Berkas
+    public function hapusBerkas($id)
+    {
+        Berkas::find($id)->delete();
+        return redirect()->back()->with('delete-berkas','Berkas telah dihapus');
+    }
+
     // pencarian data
 
     public function cari(Request $request)
@@ -152,5 +163,52 @@ class AdminController extends Controller
         return view('admin.member')->with('users', $users);
     }
 
+
+    // berkas
+    public function berkas()
+    {
+        $berkases = Berkas::all();
+
+        return view('admin.berkas')->with('berkases', $berkases);
+    }
+
+    public function tambahBerkas()
+    {
+        return view('admin.upberkas');
+    }
+    public function prosesBerkas(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'nama_file' => 'required|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx,rar,zip',
+        ]);
+
+        $user = User::first();
+
+        $berkas = new Berkas($request->input());
+
+        // dd($request->input());
+        // $imageName = time().'.'.$request->image->getClientOriginalExtension();
+
+        $berkas->user_id = Auth::guard('admin')->user()->id;
+
+
+        if ($file = $request->hasFile('nama_file')) {
+
+            $file = $request->file('nama_file') ;
+
+            $namaFile = $file->getClientOriginalName();
+            $destinationPath = public_path().'/file/berkas/';
+            $file->move($destinationPath, $namaFile);
+
+            $berkas->nama_file = $namaFile;
+
+        }
+
+        $berkas->save();
+
+        return redirect()->route('admin.berkas')->with('berkas-upload', 'Uploaded:)');
+    }
 
 }
