@@ -71,6 +71,13 @@
 						</tr>	
 
 					@endforeach
+
+					@if ($statuses->count() == 0)
+						<tr>
+							<td>Tidak ada data</td>
+						</tr>
+					@endif
+
 					</tbody>
 				</table>
 				<!-- end -->

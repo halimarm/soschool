@@ -67,9 +67,12 @@ class PasswordController extends Controller
 
     public function updateAdmin()
     {
+
+        // dd(Auth::guard('admin')->user()->password);
+
         // custom validasi
         Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
-            return Hash::check($value, \Auth::admin()->password);
+            return Hash::check($value, \Auth::guard('admin')->user()->password);
         });
 
         // alert custom
@@ -92,13 +95,13 @@ class PasswordController extends Controller
         }
 
         // update password
-        $user = Admin::find(Auth::id());
+        $user = Admin::find(Auth::guard('admin')->user()->id);
 
         $user->password = bcrypt(request('password'));
         $user->save();
 
         return redirect()
-            ->route('password.ganti')
+            ->back()
             ->withSuccess('Password Telah Diganti');
     }
 }

@@ -10,15 +10,7 @@
 		<div class="ui grid ">
 			<div class="eight wide mobile eight wide tablet sixteen wide computer column">
 				<div class="ui segment">
-				<a href="{{ route('admin.tambah') }}" class="ui button primary right floated"><i class="add icon"></i>Tambah Admin</a>
-					<form>
-						<div class="fields">
-							<div class="ui action input">
-								<input type="text" name="search" placeholder="Pencarian">
-								<button class="ui button">Cari</button>
-							</div>
-						</div>
-					</form>
+					<a href="{{ route('admin.tambah') }}" class="ui button primary "><i class="add icon"></i>Tambah Admin</a>
 				</div>
 				@if (Session::has('tambah-admin'))
 					<div class="ui positive message">
@@ -84,6 +76,13 @@
 						</tr>
 
 					@endforeach
+
+					@if ($admins->count() == 0)
+						<tr>
+							<td>Tidak ada data</td>
+						</tr>
+					@endif
+
 					</tbody>
 				</table>
 				<!-- end -->

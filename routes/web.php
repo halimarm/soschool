@@ -190,6 +190,13 @@ Route::group(['middleware' => ['web']], function () {
 		
 	]);
 
+	// pencarian member
+	Route::get('/admin/member/search', [
+		'uses' => 'AdminController@cari',
+		'as' => 'admin.search',
+		
+	]);
+
 	// HAPUS member
 	Route::post('/admin/member/{id}/hapus', [
 		'uses' => 'AdminController@hapus',

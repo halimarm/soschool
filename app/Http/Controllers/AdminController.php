@@ -141,5 +141,16 @@ class AdminController extends Controller
         return redirect()->back()->with('delete-admin','Admin telah dihapus');
     }
 
+    // pencarian data
+
+    public function cari(Request $request)
+    {
+
+        $cari = $request->get('search');
+        $users = User::where('nama_depan', 'LIKE', '%'.$cari.'%')->orWhere('nama_belakang', 'LIKE', '%'.$cari.'%')->orWhere('username', 'LIKE', '%'.$cari.'%')->get();
+
+        return view('admin.member')->with('users', $users);
+    }
+
 
 }

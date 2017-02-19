@@ -11,11 +11,11 @@
 			<div class="eight wide mobile eight wide tablet sixteen wide computer column">
 				<div class="ui segment">
 				<a href="{{ route('admin.member.tambah') }}" class="ui button primary right floated"><i class="add icon"></i>Tambah User</a>
-					<form>
+					<form action="{{ route('admin.search') }}" method="GET" role="search">
 						<div class="fields">
 							<div class="ui action input">
 								<input type="text" name="search" placeholder="Pencarian">
-								<button class="ui button">Cari</button>
+								<button type="submit" class="ui button">Cari</button>
 							</div>
 						</div>
 					</form>
@@ -23,6 +23,7 @@
 
 				<div class="ui segment">
 					
+
 				<!-- content -->
 				<table class="ui very basic celled padded table">
 					<thead>
@@ -39,7 +40,7 @@
 					<tbody>
 
 					@foreach ($users as $user) 
-
+						
 						<tr>
 							<td>{{ $user->id }}</td>
 							<td class="single line">
@@ -71,6 +72,13 @@
 						</tr>
 
 					@endforeach
+
+					@if ($users->count() == 0)
+						<tr>
+							<td>Tidak Ada Data</td>
+						</tr>
+					@endif
+
 					</tbody>
 				</table>
 				<!-- end -->
