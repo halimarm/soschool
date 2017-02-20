@@ -58,9 +58,9 @@ class AdminController extends Controller
     public function komentar()
     {
         $statuses = Status::Balas()->orderBy('created_at', 'desc')->get();
+
         return view('admin.komentar')->with('statuses', $statuses);
 
-    	// return view('admin.komentar');
     }
 
     public function detail($username)
@@ -130,12 +130,12 @@ class AdminController extends Controller
     // HAPUS status & komentar
     public function statusHapus($id)
     {
-        Status::find($id)->delete();
+        Status::NotBalas()->find($id)->delete();
         return redirect()->back()->with('delete-status','Status telah dihapus');
     }
     public function komentarHapus($id)
     {
-        Status::find($id)->delete();
+        Status::Balas()->find($id)->delete();
         return redirect()->back()->with('delete-komentar','Komentar telah dihapus');
     }
     // HAPUS Admin

@@ -49,7 +49,7 @@
 			<div class="sub-title"><i class="circle icon"></i>overview</div>
 			<a href="{{ route('admin.index') }}" class="item"><i class="dashboard icon"></i>Dashboard</a>
 			<a href="{{ route('admin.member') }}" class="item"><i class="user icon"></i>Member</a>
-			<a href="{{ route('admin.berkas') }}" class="item"><i class="user icon"></i>Berkas</a>
+			<a href="{{ route('admin.berkas') }}" class="item"><i class="file icon"></i>Berkas</a>
 			<a href="{{ route('admin.status') }}" class="item"><i class="write icon"></i>Status</a>
 			<a href="{{ route('admin.komentar') }}" class="item"><i class="comment icon"></i>Komentar</a>
 

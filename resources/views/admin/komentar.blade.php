@@ -9,16 +9,7 @@
 		<!-- <div class="sub-title">Administrator</div> -->
 		<div class="ui grid ">
 			<div class="eight wide mobile eight wide tablet sixteen wide computer column">
-				<div class="ui segment">
-					<form>
-						<div class="fields">
-							<div class="ui action input">
-								<input type="text" name="search" placeholder="Pencarian">
-								<button class="ui button">Cari</button>
-							</div>
-						</div>
-					</form>
-				</div>
+				
 				@if (Session::has('delete-komentar'))
 					<div class="ui positive message">
 						<i class="close icon"></i>
