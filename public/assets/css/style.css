@@ -6,7 +6,6 @@ body {
 
 }
 
-
 .ui.menu {
 	border-left:none;
 	border-top:none;
@@ -377,3 +376,4 @@ button.del {
 .extra .ui.dropdown .menu>.item {
 	padding: 7px 9px !important;
 }
+

@@ -23,18 +23,24 @@ class StatusController extends Controller
     	return redirect()->route('beranda');
     }
 
+    public function getStatusEdit()
+    {
+        return view('user.edit-status');
+    }
+
     public function postStatusEdit(Request $request)
     {
         $this->validate($request, [
             'status' => 'required|max:1000',
 
         ]);
+        // dd(Auth::user()->status->body);
 
         Auth::user()->update([
             'body' => $request->input('body'),            
         ]);
 
-        return redirect()->back();
+        return redirect()->route('beranda');
     }
 
     public function postBalas(Request $request, $statusId)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SOSCHOOL | @yield('title')</title>
+	<title>@yield('title')</title>
 	<!-- Standard Meta -->
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />

@@ -67,11 +67,15 @@
 								<!-- <div class="ui small basic icon buttons">
 									<a class="ui icon button" href=""><i class="edit icon"></i></a>
 								</div> -->
+								<div class="ui small basic icon buttons">
+									<a href="{{ route('admin.editprofil') }}" class="ui icon button"><i class="write icon"></i></a>
+								</div>
 								<form class="ui small basic icon buttons" action="{{ route('admin.hapus', ['id' => $admin->id]) }}" method="post">
 
-									<button type="submit" class="ui icon button" href=""><i class="close icon"></i></button>
+									<button onclick="return confirm ('Apakah Anda Yakin ingin menghapus status ini?')" type="submit" class="ui icon button" href=""><i class="close icon"></i></button>
 									{{ csrf_field() }}
 								</form>
+								
 							</td>
 						</tr>
 

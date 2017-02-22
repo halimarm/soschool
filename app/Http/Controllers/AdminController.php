@@ -80,8 +80,12 @@ class AdminController extends Controller
     public function hapus($id)
     {
         // dd($id);
-        User::find($id)->delete();
-        return redirect()->route('admin.member')->with('success','User telah dihapus');
+        $user = User::find($id);
+        $user->statuses()->delete();
+        $user->berkas()->delete();
+        $user->delete();
+
+        return redirect()->route('admin.member')->with('success','Member telah dihapus');
     }
 
     public function getTambahUser()
@@ -181,7 +185,7 @@ class AdminController extends Controller
         $this->validate($request, [
             'nama' => 'required',
             'deskripsi' => 'required',
-            'nama_file' => 'required|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx,rar,zip',
+            'nama_file' => 'required|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx',
         ]);
 
         $user = User::first();
@@ -209,6 +213,61 @@ class AdminController extends Controller
         $berkas->save();
 
         return redirect()->route('admin.berkas')->with('berkas-upload', 'Uploaded:)');
+    }
+
+
+    // edit admin
+    public function getEditAdmin()
+    {
+        return view('admin.editprofil');
+    }
+
+    public function postEditAdmin(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'max:50',
+            'email' => 'max:50',
+            'username' => 'max:50',
+
+
+        ]);
+
+        Auth::guard('admin')->user()->update([
+            'nama' => $request->input('nama'),
+            'email' => $request->input('email'),
+            'username' => $request->input('username'),
+
+        ]);
+
+        return redirect()->route('admin.editprofil')->with('edit-profil', 'Profil telah di update');
+    }
+
+    // edit member
+    public function getEditMember($username)
+    {
+        $users = User::first();
+        return view('admin.member.edit')->with('users', $users);
+    }
+
+    public function postEditMember(Request $request)
+    {
+        $users = User::first();
+        $this->validate($request, [
+            'nama' => 'max:50',
+            'email' => 'max:50',
+            'username' => 'max:50',
+
+
+        ]);
+
+        $users->update([
+            'nama' => $request->input('nama'),
+            'email' => $request->input('email'),
+            'username' => $request->input('username'),
+
+        ]);
+
+        return redirect()->route('admin.member.edit')->with('edit-profil', 'Profil telah di update');
     }
 
 }

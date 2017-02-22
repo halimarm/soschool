@@ -9,6 +9,12 @@
 		<!-- <div class="sub-title">Administrator</div> -->
 		<div class="ui grid ">
 			<div class="eight wide mobile eight wide tablet sixteen wide computer column">
+				@if (Session::has('success'))
+                        <div class="ui positive message">
+                            <i class="close icon"></i>
+                            {{ session('success') }}
+                        </div>
+                    @endif
 				<div class="ui segment">
 				<a href="{{ route('admin.member.tambah') }}" class="ui button primary right floated"><i class="add icon"></i>Tambah User</a>
 					<form action="{{ route('admin.search') }}" method="GET" role="search">
@@ -60,12 +66,15 @@
 								<div class="ui small basic icon buttons">
 									<a class="ui icon button" href="{{ route('admin.member.detail', $user->username) }}"><i class="unhide icon"></i></a>
 								</div>
+								<div class="ui small basic icon buttons">
+									<a class="ui icon button" href="{{ route('admin.member.edit', $user->username) }}"><i class="write icon"></i></a>
+								</div>
 								<!-- <div class="ui small basic icon buttons">
 									<a class="ui icon button" href=""><i class="edit icon"></i></a>
 								</div> -->
 								<form class="ui small basic icon buttons" action="{{ route('admin.member.hapus', ['id' => $user->id]) }}" method="post">
 
-										<button type="submit" class="ui icon button" href=""><i class="close icon"></i></button>
+										<button onclick="return confirm ('Apakah Anda Yakin ingin menghapus status ini?')" type="submit" class="ui icon button" href=""><i class="close icon"></i></button>
 										{{ csrf_field() }}
 								</form>
 							</td>

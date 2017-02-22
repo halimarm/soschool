@@ -78,7 +78,7 @@ class BerkasController extends Controller
 
     public function hapus($id)
     {
-    	Berkas::find($id)->delete();
+    	Berkas::find($id)->destroy();
         return redirect()->back()->with('delete-berkas','berkas telah dihapus');
     }
 

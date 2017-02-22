@@ -1,11 +1,21 @@
 				@foreach ($status->replies as $balas)
 					<div class="content komentar">
-						<div class="right floated">
+						<div class="menu right floated">
 							@if (Auth::user()->id == $balas->user_id)
-								<form action="{{ route('komentar.hapus', ['balasId' => $balas->id]) }}" method="post">
-									<button class="del"><i class="close icon"></i></button>
-									{{ csrf_field() }}
-								</form>
+							<div class="ui inline dropdown right floated">
+									<i class="angle down icon"></i>
+								<div class="menu">
+				
+									<div class="item">
+											
+										<form action="{{ route('komentar.hapus', ['balasId' => $balas->id]) }}" method="post">
+											<button onclick="return confirm ('Apakah Anda Yakin ingin menghapus status ini?')" class="del"><i class="close icon"></i>Hapus</button>
+											{{ csrf_field() }}
+										</form>
+									
+									</div>
+								</div>
+							</div>
 							@endif
 						</div>
 						<a href="{{ route('profil.index', ['username' => $balas->user->username]) }}"><img class="ui avatar image" src="/assets/uploads/user/{{ $balas->user->avatar }}"><b>{{ $balas->user->getNamaOrUsername() }}</b></a><span class="date meta">{{ $balas->created_at->diffForHumans() }}</span>

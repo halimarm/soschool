@@ -1,6 +1,6 @@
 @extends('layout.member.master')
 
-@section('title', 'Selamat Datang')
+@section('title', 'SOSCHOOL')
 
 @section('content')
 

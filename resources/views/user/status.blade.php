@@ -6,18 +6,18 @@
 									<div class="ui inline dropdown right floated">
 											<i class="angle down icon"></i>
 											<div class="menu">
-												<div class="item">
-													<button href="" class="del"><i class="write icon"></i>Edit</button>
-												</div>
+												<!-- <a class="item" href="{{ route('status.edit') }}">
+													<button class="del"><i class="write icon"></i>Edit</button>
+												</a> -->
 												<div class="item">
 													
 													<form action="{{ route('status.hapus', ['statusId' => $status->id]) }}" method="post">
-														<button class="del"><i class="close icon"></i>Hapus</button>
-																{{ csrf_field() }}
+														<button onclick="return confirm ('Apakah Anda Yakin ingin menghapus status ini?')" class="del"><i class="close icon"></i>Hapus</button>
+														{{ csrf_field() }}
 													</form>
 												
+												</div>
 											</div>
-										</div>
 									</div>
 
 									

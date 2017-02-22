@@ -5,19 +5,16 @@
 @section('content')
 
 	<div class="ui stackable two column grid ">
-		<div class="column" style="background-color: #3498db;height:100vh !important;color: #fff;">
+		<div class="bgcolor column">
+			<div class="bg-left">
 			<div class="ui segment">
-				<a href="index.php"><h3>Soschool - <small>SMKN 1 PURWOSARI</small></h3></a>
-				<div class="desc">
-				<h1>Selamat Datang</h1>
-					<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+				<a href="{{ route('login') }}" class="logo"><h3>SOSCHOOL<small></small></h3></a>
+				<div class="desc headings">
+					<h1>JEJARING SOSIAL</h1>
+					<h3>SMKN 1 PURWOSARI</h3>
 				</div>
 			</div>
+		</div>
 		</div>
 		<div class="column col-login" style="background-color: #fff;height:100vh !important;"">
 			<div class="ui segment">

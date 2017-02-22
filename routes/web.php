@@ -119,13 +119,14 @@ Route::post('/status', [
 
 // edit status
 Route::get('/status/edit', [
-	'uses' => 'ProfilController@getStatusEdit',
+	'uses' => 'StatusController@getStatusEdit',
 	'as' => 'status.edit',
 	'middleware' => ['auth'],
 ]);
 
 Route::post('/status/edit', [
-	'uses' => 'ProfilController@postStatusEdit',
+	'uses' => 'StatusController@postStatusEdit',
+	'as' => 'status.edit',
 	'middleware' => ['auth'],
 ]);
 
@@ -283,6 +284,25 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/admin/user/tambah', [
 		'uses' => 'AdminController@postTambahAdmin',
 	]);
+
+	// edit admin
+	Route::get('/admin/user/edit', [
+		'uses' => 'AdminController@getEditAdmin',
+		'as' => 'admin.editprofil',
+	]);
+	Route::post('/admin/user/edit', [
+		'uses' => 'AdminController@postEditAdmin',
+	]);
+
+	// edit member
+	Route::get('/admin/member/{username}/edit', [
+		'uses' => 'AdminController@getEditMember',
+		'as' => 'admin.member.edit',
+	]);
+	Route::post('/admin/member/{username}/edit', [
+		'uses' => 'AdminController@postEditMember',
+	]);
+
 
 });  
 

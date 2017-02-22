@@ -53,7 +53,7 @@
 									<!-- <a class="ui icon button" href=""><i class="edit icon"></i></a> -->
 									<form class="ui small basic icon buttons" action="{{ route('admin.komentar.hapus', ['id' => $status->id]) }}" method="post">
 
-										<button type="submit" class="ui icon button" href=""><i class="close icon"></i></button>
+										<button onclick="return confirm ('Apakah Anda Yakin ingin menghapus status ini?')" type="submit" class="ui icon button" href=""><i class="close icon"></i></button>
 										{{ csrf_field() }}
 									</form>
 									

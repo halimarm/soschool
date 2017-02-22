@@ -1,6 +1,6 @@
 @extends('layout.member.master')
 
-@section('title', 'Berkas File')
+@section('title', 'Berkas')
 
 @section('content')
 <style type="text/css">

@@ -1,4 +1,4 @@
-{{-- <div class="ui long modal">
+<!-- {{-- <div class="ui long modal">
 	<i class="close icon"></i>
 	<div class="header">
 		Kiriman Abd Halim Arumman
@@ -39,4 +39,4 @@
 		@include('user.form-komentar')
 
 	</div>
-</div> --}}
+</div> --}} -->
