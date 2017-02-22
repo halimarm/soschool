@@ -42,7 +42,7 @@ class AdminController extends Controller
 
     public function member()
     {
-    	$users = User::all();
+    	$users = User::orderBy('created_at', 'desc')->paginate(6);
 
     	return view('admin.member')->with('users', $users);
     }
@@ -50,14 +50,14 @@ class AdminController extends Controller
     public function status()
     {
 
-    	$statuses = Status::NotBalas()->orderBy('created_at', 'desc')->get();
+    	$statuses = Status::NotBalas()->orderBy('created_at', 'desc')->paginate(6);
     	return view('admin.status')->with('statuses', $statuses);
     
     }
 
     public function komentar()
     {
-        $statuses = Status::Balas()->orderBy('created_at', 'desc')->get();
+        $statuses = Status::Balas()->orderBy('created_at', 'desc')->paginate(6);
 
         return view('admin.komentar')->with('statuses', $statuses);
 

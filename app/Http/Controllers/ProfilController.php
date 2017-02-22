@@ -73,7 +73,6 @@ class ProfilController extends Controller
 
 	public function postAvatar(Request $request)
 	{
-		// handle the user upload avatar
 		if ($request->hasFile('avatar')) {
 
 			$avatar = $request->file('avatar');

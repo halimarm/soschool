@@ -11,10 +11,7 @@
 				<p><i class="icon announcement"></i><b>Dinding Informasi</b></p>
 			</div>
 
-			<!-- form status -->
-			<!-- <div class="ui padded segment">
-				@include('beranda/status')
-			</div> -->
+	
 			<div class="ui small modal">
 				<i class="close icon"></i>
 				<div class="header">Kirim Informasi</div>
@@ -26,7 +23,7 @@
 
 			
 			
-			<!-- status'e wong2 -->
+			<!-- view status -->
 			@if (!$statuses->count())
 				<p>Tidak Ada Status</p>
 			@else
@@ -41,8 +38,7 @@
 			
 			@endif
 			
-			<!-- modal fullscreen -->
-			<!-- @include('user/modal') -->
+		
 			
 		</div>
 

@@ -117,6 +117,18 @@ Route::post('/status', [
 	'middleware' => ['auth'],
 ]);
 
+// edit status
+Route::get('/status/edit', [
+	'uses' => 'ProfilController@getStatusEdit',
+	'as' => 'status.edit',
+	'middleware' => ['auth'],
+]);
+
+Route::post('/status/edit', [
+	'uses' => 'ProfilController@postStatusEdit',
+	'middleware' => ['auth'],
+]);
+
 Route::post('/status/{statusId}/balas', [
 	'uses' => 'StatusController@postBalas',
 	'as' => 'status.balas',
@@ -138,8 +150,6 @@ Route::post('/komentar/{id}/hapus', [
 	'uses' => 'HomeController@komentarHapus',
 	'as' => 'komentar.hapus',
 ]);
-
-// Route::get('/carbon', 'StatusController@carbon');
 
 
 /**

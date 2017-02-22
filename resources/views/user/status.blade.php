@@ -3,10 +3,24 @@
 						<div class="content title">
 							<div class="right floated">
 								@if (Auth::user()->id == $status->user_id)
-									<form action="{{ route('status.hapus', ['statusId' => $status->id]) }}" method="post">
-										<button class="del"><i class="close icon"></i></button>
-										{{ csrf_field() }}
-								</form>
+									<div class="ui inline dropdown right floated">
+											<i class="angle down icon"></i>
+											<div class="menu">
+												<div class="item">
+													<button href="" class="del"><i class="write icon"></i>Edit</button>
+												</div>
+												<div class="item">
+													
+													<form action="{{ route('status.hapus', ['statusId' => $status->id]) }}" method="post">
+														<button class="del"><i class="close icon"></i>Hapus</button>
+																{{ csrf_field() }}
+													</form>
+												
+											</div>
+										</div>
+									</div>
+
+									
 								@endif
 							</div>
 							<a href="{{ route('profil.index', ['username' => $status->user->username]) }}"><img class="ui avatar image" src="/assets/uploads/user/{{ $status->user->avatar }}">{{ $status->user->getNamaOrUsername() }}</a>

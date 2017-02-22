@@ -14,7 +14,6 @@ class HomeController extends Controller
 	public function index()
 	{
 		if (Auth::check()) {
-			// return view('login');
 			$user = User::all();
 			$statuses = Status::notBalas()->where(function($query){
 				return $query->where('user_id', Auth::user()->id)->orWhereIn('user_id', Auth::user()->pluck('id'));
@@ -43,7 +42,7 @@ class HomeController extends Controller
     	return view('guru.member')->with('users', $users);
     }
 
-    // HAPUS status & komentar
+    // hapus status & komentar
     public function statusHapus($id)
     {
         Status::find($id)->delete();

@@ -74,6 +74,7 @@
 				<!-- end -->
 
 				</div>
+				{!! $statuses->render() !!}
 			</div>
 			
 

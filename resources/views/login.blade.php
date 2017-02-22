@@ -43,15 +43,10 @@
 									<i class="key icon"></i>
 								</div>
 							</div>
-							<!-- <div class="field">
-								<div class="ui checkbox">
-									<input  type="checkbox">
-									<label>Remember</label>
-								</div>
-							</div> -->
+				
 							<div class="ui error message"></div>
 							<button class="ui labeled icon button primary"><i class="icon sign in"></i>Login</button>
-							<!-- <button class="ui button" type="submit">Submit</button> -->
+				
 						</form>
 				</div>
 			</div>

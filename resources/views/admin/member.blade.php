@@ -81,9 +81,12 @@
 
 					</tbody>
 				</table>
+
+
 				<!-- end -->
 
 				</div>
+				{!! $users->render() !!}
 			</div>
 			
 
