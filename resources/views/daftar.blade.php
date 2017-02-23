@@ -60,7 +60,7 @@
 								<div class="default text">jabatan</div>
 								<div class="menu">
 									<div class="item" name="jabatan" value="Siswa" data-value="Siswa">Siswa</div>
-									<div class="item" name="jabatan" value="Guru" data-value="Guru">Guru</div>
+									<!-- <div class="item" name="jabatan" value="Guru" data-value="Guru">Guru</div> -->
 								</div>
 							</div>
 							@if($errors->has('jabatan'))

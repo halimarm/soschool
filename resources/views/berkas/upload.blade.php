@@ -8,14 +8,16 @@
 	<!-- main -->
 	<div class="ui grid text container">
             <div class="eight wide mobile eight wide tablet sixteen wide computer column">
-                <div class="ui segment">
-                    <h4><i class="upload icon"></i>Upload Berkas</h4>
-                    @if (Session::has('success'))
+                 @if (Session::has('delete-berkas'))
                         <div class="ui positive message">
                             <i class="close icon"></i>
-                            {{ session('success') }}
+                            {{ session('delete-berkas') }}
                         </div>
                     @endif
+ 
+                <div class="ui segment">
+                    <h4><i class="upload icon"></i>Upload Berkas</h4>
+                   
                     <br>
                     <form class="ui grid form" role="form" action="{{ route('berkas.proses') }}" method="post" enctype="multipart/form-data" files="true">
                         <div class="sixteen wide mobile eight wide tablet sixteen wide computer column">

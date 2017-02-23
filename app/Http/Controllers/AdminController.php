@@ -11,6 +11,7 @@ use App\Models\Berkas;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Pagination;
 
 class AdminController extends Controller
 {
@@ -27,7 +28,7 @@ class AdminController extends Controller
         $komentar = Status::Balas()->get();
         $trackers = Tracker::all();
 
-    	return view('admin.index')->with('user', $user)->with('admin', $admin)->with('status', $status)->with('komentar', $komentar)->with('trackers', $trackers);;
+    	return view('admin.index')->with('user', $user)->with('admin', $admin)->with('status', $status)->with('komentar', $komentar)->with('trackers', $trackers);
     }
 
     public function login()
@@ -160,9 +161,14 @@ class AdminController extends Controller
 
     public function cari(Request $request)
     {
+        $this->validate($request, [
+            'q' => 'required'
+        ]);
 
-        $cari = $request->get('search');
-        $users = User::where('nama_depan', 'LIKE', '%'.$cari.'%')->orWhere('nama_belakang', 'LIKE', '%'.$cari.'%')->orWhere('username', 'LIKE', '%'.$cari.'%')->get();
+        $cari = $request->get('q');
+        // $cari->appends(Request::only('search'))->render()
+
+        $users = User::where('nama_depan', 'LIKE', '%'.$cari.'%')->orWhere('nama_belakang', 'LIKE', '%'.$cari.'%')->orWhere('username', 'LIKE', '%'.$cari.'%')->paginate(6);
 
         return view('admin.member')->with('users', $users);
     }
@@ -242,32 +248,6 @@ class AdminController extends Controller
         return redirect()->route('admin.editprofil')->with('edit-profil', 'Profil telah di update');
     }
 
-    // edit member
-    public function getEditMember($username)
-    {
-        $users = User::first();
-        return view('admin.member.edit')->with('users', $users);
-    }
 
-    public function postEditMember(Request $request)
-    {
-        $users = User::first();
-        $this->validate($request, [
-            'nama' => 'max:50',
-            'email' => 'max:50',
-            'username' => 'max:50',
-
-
-        ]);
-
-        $users->update([
-            'nama' => $request->input('nama'),
-            'email' => $request->input('email'),
-            'username' => $request->input('username'),
-
-        ]);
-
-        return redirect()->route('admin.member.edit')->with('edit-profil', 'Profil telah di update');
-    }
 
 }

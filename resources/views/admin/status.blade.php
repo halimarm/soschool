@@ -22,7 +22,7 @@
 				<table class="ui very basic celled padded table">
 					<thead>
 						<tr>
-							<th>id</th>
+							<th>Id</th>
 							<th>Nama Lengkap</th>
 							<th>Status</th>
 							<th>Aksi</th>

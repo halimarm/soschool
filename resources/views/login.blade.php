@@ -10,7 +10,7 @@
 			<div class="ui segment">
 				<a href="{{ route('login') }}" class="logo"><h3>SOSCHOOL<small></small></h3></a>
 				<div class="desc headings">
-					<h1>JEJARING SOSIAL</h1>
+					<h1>E-LEARNING</h1>
 					<h3>SMKN 1 PURWOSARI</h3>
 				</div>
 			</div>

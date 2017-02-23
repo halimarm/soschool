@@ -104,4 +104,56 @@ class PasswordController extends Controller
             ->back()
             ->withSuccess('Password Telah Diganti');
     }
+
+    public function getEditPassMember($username)
+    {
+        $users = User::where('username', $username)->first();
+
+        if (!$users) {
+            abort(404);
+        }
+
+        return view('admin.member.edit')->with('users', $users);
+    }
+
+
+
+    // member pada admin
+    public function postEditPassMember(Request $request)
+    {
+        $users = User::first();
+
+        // $this->validate($request, [
+        //     'password' => 'max:50',
+        //     'password_confirmation' => 'max:50',
+
+        // ]);
+
+        // vallidasi
+        $validator = Validator::make(request()->all(), [
+            'password'              => 'required|min:6|confirmed',
+            'password_confirmation' => 'required',
+
+        ]);
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors());
+        }
+
+        // $users->update([
+        //     // 'username' => $request->input('username'),
+        //     'password' => $request->input('password'),
+        //     'password_confirmation' => $request->input(bcrypt('password_confirmation')),
+
+
+        // ]);
+        $user = User::find($users->id);
+
+        $user->password = bcrypt(request('password'));
+        $user->save();
+
+        return redirect()->back()->with('edit-password', 'Password telah di reset');
+    } 
+
 }

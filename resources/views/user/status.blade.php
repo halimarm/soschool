@@ -6,9 +6,9 @@
 									<div class="ui inline dropdown right floated">
 											<i class="angle down icon"></i>
 											<div class="menu">
-												<!-- <a class="item" href="{{ route('status.edit') }}">
+												<a class="item" href="{{ route('status.edit') }}">
 													<button class="del"><i class="write icon"></i>Edit</button>
-												</a> -->
+												</a>
 												<div class="item">
 													
 													<form action="{{ route('status.hapus', ['statusId' => $status->id]) }}" method="post">

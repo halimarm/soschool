@@ -126,7 +126,6 @@ Route::get('/status/edit', [
 
 Route::post('/status/edit', [
 	'uses' => 'StatusController@postStatusEdit',
-	'as' => 'status.edit',
 	'middleware' => ['auth'],
 ]);
 
@@ -294,13 +293,13 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'AdminController@postEditAdmin',
 	]);
 
-	// edit member
+	// edit password member pada admin
 	Route::get('/admin/member/{username}/edit', [
-		'uses' => 'AdminController@getEditMember',
+		'uses' => 'PasswordController@getEditPassMember',
 		'as' => 'admin.member.edit',
 	]);
 	Route::post('/admin/member/{username}/edit', [
-		'uses' => 'AdminController@postEditMember',
+		'uses' => 'PasswordController@postEditPassMember',
 	]);
 
 

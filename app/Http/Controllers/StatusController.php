@@ -34,13 +34,12 @@ class StatusController extends Controller
             'status' => 'required|max:1000',
 
         ]);
-        // dd(Auth::user()->status->body);
 
-        Auth::user()->update([
-            'body' => $request->input('body'),            
+        Auth::user()->statuses()->notBalas()->update([
+            'body' => $request->input('status'),
         ]);
 
-        return redirect()->route('beranda');
+        return redirect()->back()->with('ganti-status', 'Status sudah diganti');;
     }
 
     public function postBalas(Request $request, $statusId)

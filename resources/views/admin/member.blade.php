@@ -17,10 +17,10 @@
                     @endif
 				<div class="ui segment">
 				<a href="{{ route('admin.member.tambah') }}" class="ui button primary right floated"><i class="add icon"></i>Tambah User</a>
-					<form action="{{ route('admin.search') }}" method="GET" role="search">
+					<form action="{{ route('admin.search') }}" method="GET" role="q">
 						<div class="fields">
 							<div class="ui action input">
-								<input type="text" name="search" placeholder="Pencarian">
+								<input type="text" name="q" placeholder="Pencarian">
 								<button type="submit" class="ui button">Cari</button>
 							</div>
 						</div>
@@ -67,7 +67,7 @@
 									<a class="ui icon button" href="{{ route('admin.member.detail', $user->username) }}"><i class="unhide icon"></i></a>
 								</div>
 								<div class="ui small basic icon buttons">
-									<a class="ui icon button" href="{{ route('admin.member.edit', $user->username) }}"><i class="write icon"></i></a>
+									<a class="ui icon button" href="{{ route('admin.member.edit', $user->username) }}"><i class="key icon"></i></a>
 								</div>
 								<!-- <div class="ui small basic icon buttons">
 									<a class="ui icon button" href=""><i class="edit icon"></i></a>
@@ -87,7 +87,7 @@
 							<td>Tidak Ada Data</td>
 						</tr>
 					@endif
-
+					
 					</tbody>
 				</table>
 

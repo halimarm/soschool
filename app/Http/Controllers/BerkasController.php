@@ -8,6 +8,7 @@ use App\User;
 use Auth;
 use App\Http\Controllers\Controller;
 use Validator;
+use Storage;
 
 // use App\Http\Controllers\Controller;
 
@@ -72,13 +73,19 @@ class BerkasController extends Controller
 
 		$berkas->save();
 
-		return redirect()->route('berkas.index')->with('success', 'Uploaded:)');
+		return redirect()->back()->with('success', 'Berkas telah diupload!');
     	
     }
 
     public function hapus($id)
     {
-    	Berkas::find($id)->destroy();
+    	Berkas::find($id)->delete();
+
+            $filename_old = Berkas::find($id);
+ 
+            $path = public_path().'/file/berkas/';
+            Storage::delete($path . $filename_old);
+
         return redirect()->back()->with('delete-berkas','berkas telah dihapus');
     }
 

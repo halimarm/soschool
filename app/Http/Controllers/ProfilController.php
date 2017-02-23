@@ -65,12 +65,6 @@ class ProfilController extends Controller
 		return redirect()->route('profil.edit')->with('info-update', 'Profil telah di update');
 	}
 
-	// gambar profil (avatar)
-	// public function avatar()
-	// {
-	// 	return view('user.avatar');
-	// }
-
 	public function postAvatar(Request $request)
 	{
 		if ($request->hasFile('avatar')) {

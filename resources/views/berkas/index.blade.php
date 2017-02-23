@@ -9,7 +9,12 @@
 	<!-- main -->
 	<div class="ui grid text container " id="main">
 		<div class="sixteen wide mobile ten wide tablet sixteen wide computer column">
-
+			 @if (Session::has('delete-berkas'))
+                        <div class="ui positive message">
+                            <i class="close icon"></i>
+                            {{ session('delete-berkas') }}
+                        </div>
+                    @endif
 			@foreach ($berkases as $berkas)
 				<div class="ui segment">
 					<div class="ui divided items">
@@ -36,7 +41,7 @@
 												<div class="item">
 													
 														<form action="{{ route('berkas.hapus', ['berkasId' => $berkas->id]) }}" method="post">
-															<button class="del"><i class="close icon"></i>Hapus</button>
+															<button onclick="return confirm ('Apakah Anda Yakin ingin menghapus status ini?')" class="del"><i class="close icon"></i>Hapus</button>
 															{{ csrf_field() }}
 														</form>
 													

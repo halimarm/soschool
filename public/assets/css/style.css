@@ -377,3 +377,6 @@ button.del {
 	padding: 7px 9px !important;
 }
 
+.item button {
+	font-weight: 400;
+}
