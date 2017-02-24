@@ -98,7 +98,7 @@
 		}
 		.headings h3 {
 			font-weight: 100;
-			letter-spacing: 10px;
+			letter-spacing: 7px;
 
 		}
 		.headings {

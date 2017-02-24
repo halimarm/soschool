@@ -5,8 +5,8 @@
 @section('content')
 
 @if (Auth::user()->jabatan == 'Guru')
-	<!-- main -->
-	<div class="ui grid text container">
+    <!-- main -->
+    <div class="ui grid text container">
             <div class="eight wide mobile eight wide tablet sixteen wide computer column">
                  @if (Session::has('delete-berkas'))
                         <div class="ui positive message">
@@ -22,11 +22,11 @@
                     <form class="ui grid form" role="form" action="{{ route('berkas.proses') }}" method="post" enctype="multipart/form-data" files="true">
                         <div class="sixteen wide mobile eight wide tablet sixteen wide computer column">
                            
-                           	<div class="field">
+                            <div class="field">
                                 <label for="nama"><i class="hashtag icon"></i>Nama : </label>
-                           		<input type="hidden" placeholder="{{ Auth::user()->id }}" name="id">
-                        		<input type="text" name="username" placeholder="{{ Auth::user()->username }}" class="form-control" disabled> 
-                           	</div>
+                                <input type="hidden" placeholder="{{ Auth::user()->id }}" name="id">
+                                <input type="text" name="username" placeholder="{{ Auth::user()->username }}" class="form-control" disabled> 
+                            </div>
 
                             <div class="field {{ $errors->has('nama') ? 'error' : '' }}">
                                 <label for="nama"><i class="hashtag icon"></i>Judul : </label>
@@ -50,6 +50,7 @@
                                 @if($errors->has('nama_file'))
                                     <br><small>{{ $errors->first('nama_file') }} </small>
                                 @endif
+                                <small>File dokumen harus berjenis : pdf, doc, ppt, xls, docx, pptx, xlsx, rar, zip.</small>
                             </div>
 
 
@@ -71,7 +72,7 @@
 
         </div>
 
-	</div>
+    </div>
 @else 
 
     <div class="ui text container">
